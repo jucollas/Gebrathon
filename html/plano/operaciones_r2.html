@@ -1,0 +1,702 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>📘 Operaciones en \(\mathbb{R}^2\) &#8212; Gebrathon</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'plano/operaciones_r2';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="📐 Plano en \(\mathbb{R}^2\)" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../introduccion.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo_gebrathon.png" class="logo__image only-light" alt=""/>
+    <script>document.write(`<img src="../_static/logo_gebrathon.png" class="logo__image only-dark" alt=""/>`);</script>
+  
+  
+    <p class="title logo__title">Gebrathon</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cronogramas/index.html">📅 Cronogramas de la Asignatura</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cronogramas/2025-2.html">Cronograma 2025-2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">📐 Plano en <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span></a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">📘 Operaciones en <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span></a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/plano/operaciones_r2.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>📘 Operaciones en \mathbb{R}^2</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vectores-en-mathbb-r-2">🔹 Vectores en <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definicion">Definición</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion-geometrica">Interpretación Geométrica</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#suma-de-vectores">➕ Suma de Vectores</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Definición</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Interpretación Geométrica</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo">Ejemplo</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplicacion-por-escalar">✖️ Multiplicación por Escalar</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Definición</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion">Interpretación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Ejemplo</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#propiedades">⚖️ Propiedades</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normas-de-un-vector">📏 Normas de un Vector</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#norma-euclidiana-l-2">Norma Euclidiana (<span class="math notranslate nohighlight">\(L_2\)</span>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#otras-normas">Otras Normas</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio">Ejercicio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proyeccion-de-un-vector">🎯 Proyección de un Vector</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Definición</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Ejemplo</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resumen">📌 Resumen</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="operaciones-en-mathbb-r-2">
+<h1>📘 Operaciones en <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span><a class="headerlink" href="#operaciones-en-mathbb-r-2" title="Link to this heading">#</a></h1>
+<p>En esta clase repasaremos los conceptos fundamentales de los <strong>vectores en <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span></strong>, la <strong>suma de vectores</strong>, la <strong>multiplicación por escalar</strong>, las <strong>normas</strong> y la <strong>proyección de un vector sobre otro</strong>.</p>
+<section id="vectores-en-mathbb-r-2">
+<h2>🔹 Vectores en <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span><a class="headerlink" href="#vectores-en-mathbb-r-2" title="Link to this heading">#</a></h2>
+<section id="definicion">
+<h3>Definición<a class="headerlink" href="#definicion" title="Link to this heading">#</a></h3>
+<p>Un <strong>vector</strong> en <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span> es un par ordenado de números reales:
+$<span class="math notranslate nohighlight">\(
+\mathbf{v} = (v_1, v_2), \quad v_1,v_2 \in \mathbb{R}.
+\)</span>$</p>
+<p>También se puede escribir en forma de columna:
+$<span class="math notranslate nohighlight">\(
+\mathbf{v}=\begin{pmatrix}v_1\\v_2\end{pmatrix}.
+\)</span>$</p>
+</section>
+<section id="interpretacion-geometrica">
+<h3>Interpretación Geométrica<a class="headerlink" href="#interpretacion-geometrica" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Se representa como un <strong>segmento dirigido</strong> en el plano cartesiano desde el origen <span class="math notranslate nohighlight">\((0,0)\)</span> hasta <span class="math notranslate nohighlight">\((v_1,v_2)\)</span>.</p></li>
+<li><p>Su <strong>longitud</strong> y <strong>dirección</strong> describen el vector.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="suma-de-vectores">
+<h2>➕ Suma de Vectores<a class="headerlink" href="#suma-de-vectores" title="Link to this heading">#</a></h2>
+<section id="id1">
+<h3>Definición<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>Dado <span class="math notranslate nohighlight">\(\mathbf{u}=(u_1,u_2)\)</span> y <span class="math notranslate nohighlight">\(\mathbf{v}=(v_1,v_2)\)</span>:
+$<span class="math notranslate nohighlight">\(
+\mathbf{u}+\mathbf{v} = (u_1+v_1, \, u_2+v_2).
+\)</span>$</p>
+</section>
+<section id="id2">
+<h3>Interpretación Geométrica<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Regla del paralelogramo</strong> o método <strong>cabeza-cola</strong>.</p></li>
+</ul>
+</section>
+<section id="ejemplo">
+<h3>Ejemplo<a class="headerlink" href="#ejemplo" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{u}=(2,3),\quad \mathbf{v}=(-1,5).
+\]</div>
+<p>Entonces:
+$<span class="math notranslate nohighlight">\(
+\mathbf{u}+\mathbf{v}=(1,8).
+\)</span>$</p>
+</section>
+</section>
+<section id="multiplicacion-por-escalar">
+<h2>✖️ Multiplicación por Escalar<a class="headerlink" href="#multiplicacion-por-escalar" title="Link to this heading">#</a></h2>
+<section id="id3">
+<h3>Definición<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>Si <span class="math notranslate nohighlight">\(\alpha \in \mathbb{R}\)</span> y <span class="math notranslate nohighlight">\(\mathbf{v}=(v_1,v_2)\)</span>:
+$<span class="math notranslate nohighlight">\(
+\alpha \mathbf{v} = (\alpha v_1, \alpha v_2).
+\)</span>$</p>
+</section>
+<section id="interpretacion">
+<h3>Interpretación<a class="headerlink" href="#interpretacion" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Estira o encoge el vector.</p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(\alpha&lt;0\)</span>, invierte su dirección.</p></li>
+</ul>
+</section>
+<section id="id4">
+<h3>Ejemplo<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{v}=(2,-1),\quad 3\mathbf{v}=(6,-3).
+\]</div>
+</section>
+</section>
+<section id="propiedades">
+<h2>⚖️ Propiedades<a class="headerlink" href="#propiedades" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Conmutatividad: <span class="math notranslate nohighlight">\(\mathbf{u}+\mathbf{v}=\mathbf{v}+\mathbf{u}\)</span></p></li>
+<li><p>Asociatividad: <span class="math notranslate nohighlight">\((\mathbf{u}+\mathbf{v})+\mathbf{w}=\mathbf{u}+(\mathbf{v}+\mathbf{w})\)</span></p></li>
+<li><p>Neutro: <span class="math notranslate nohighlight">\(\mathbf{v}+\mathbf{0}=\mathbf{v}\)</span></p></li>
+<li><p>Inverso: <span class="math notranslate nohighlight">\(\mathbf{v}+(-\mathbf{v})=\mathbf{0}\)</span></p></li>
+<li><p>Distributividad: <span class="math notranslate nohighlight">\(\alpha(\mathbf{u}+\mathbf{v})=\alpha\mathbf{u}+\alpha\mathbf{v}\)</span></p></li>
+<li><p>Asociatividad escalar: <span class="math notranslate nohighlight">\(\alpha(\beta\mathbf{v})=(\alpha\beta)\mathbf{v}\)</span></p></li>
+<li><p>Identidad: <span class="math notranslate nohighlight">\(1\mathbf{v}=\mathbf{v}\)</span></p></li>
+</ol>
+</section>
+<section id="normas-de-un-vector">
+<h2>📏 Normas de un Vector<a class="headerlink" href="#normas-de-un-vector" title="Link to this heading">#</a></h2>
+<p>La norma mide la <strong>longitud</strong> de un vector.</p>
+<section id="norma-euclidiana-l-2">
+<h3>Norma Euclidiana (<span class="math notranslate nohighlight">\(L_2\)</span>)<a class="headerlink" href="#norma-euclidiana-l-2" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+\|\mathbf{v}\|_2 = \sqrt{v_1^2+v_2^2}.
+\]</div>
+<p>Ejemplo:<br />
+Si <span class="math notranslate nohighlight">\(\mathbf{v}=(3,4)\)</span> entonces <span class="math notranslate nohighlight">\(\|\mathbf{v}\|_2=5\)</span>.</p>
+</section>
+<section id="otras-normas">
+<h3>Otras Normas<a class="headerlink" href="#otras-normas" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(L_1\)</span>: <span class="math notranslate nohighlight">\(\|\mathbf{v}\|_1=|v_1|+|v_2|\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(L_\infty\)</span>: <span class="math notranslate nohighlight">\(\|\mathbf{v}\|_\infty=\max(|v_1|,|v_2|)\)</span></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="n">valores_de_p</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">colores</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="s1">&#39;blue&#39;</span><span class="p">]</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">j</span><span class="p">,</span><span class="n">p</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">valores_de_p</span><span class="p">):</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="n">p</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">p</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="n">colores</span><span class="p">[</span><span class="n">j</span><span class="p">],</span><span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;L_</span><span class="si">{</span><span class="n">p</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">-</span><span class="n">y</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="n">colores</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Circunferencias en diferentes normas&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/9e93b6de885283629197dbb7268541fea8383025c605198b56dbcc905bc1d139.png" src="../_images/9e93b6de885283629197dbb7268541fea8383025c605198b56dbcc905bc1d139.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="ejercicio">
+<h2>Ejercicio<a class="headerlink" href="#ejercicio" title="Link to this heading">#</a></h2>
+<p>¿Cómo sería la circunferencia en la norma infinito?</p>
+</section>
+<section id="proyeccion-de-un-vector">
+<h2>🎯 Proyección de un Vector<a class="headerlink" href="#proyeccion-de-un-vector" title="Link to this heading">#</a></h2>
+<section id="id5">
+<h3>Definición<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+\text{proj}_{\mathbf{v}}(\mathbf{u})=\frac{\mathbf{u}\cdot\mathbf{v}}{\mathbf{v}\cdot\mathbf{v}}\mathbf{v}.
+\]</div>
+</section>
+<section id="id6">
+<h3>Ejemplo<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>Sea $\mathbf{u}=(2,1)$ y $\mathbf{v}=(3,0)$:</p>
+<div class="math notranslate nohighlight">
+\[
+\text{proj}_{\mathbf{v}}(\mathbf{u})=(2,0).
+\]</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="resumen">
+<h2>📌 Resumen<a class="headerlink" href="#resumen" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Vectores en $\mathbb{R}^2$: pares ordenados.</p></li>
+<li><p>Suma: componente a componente.</p></li>
+<li><p>Multiplicación por escalar: escala magnitud y puede invertir dirección.</p></li>
+<li><p>Norma: longitud del vector.</p></li>
+<li><p>Proyección: parte de un vector en la dirección de otro.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">6</span><span class="p">])</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;u =&quot;</span><span class="p">,</span> <span class="n">u</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;v =&quot;</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;u+v =&quot;</span><span class="p">,</span> <span class="n">u</span><span class="o">+</span><span class="n">v</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;2u =&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">u</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;||u|| =&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">u</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Proyección de u sobre v =&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">v</span><span class="p">)</span><span class="o">*</span><span class="n">v</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>u = [ 3 -6]
+v = [-1  4]
+u+v = [ 2 -2]
+2u = [  6 -12]
+||u|| = 6.708203932499369
+Proyección de u sobre v = [ 1.58823529 -6.35294118]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./plano"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">📐 Plano en <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span></p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vectores-en-mathbb-r-2">🔹 Vectores en <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definicion">Definición</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion-geometrica">Interpretación Geométrica</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#suma-de-vectores">➕ Suma de Vectores</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Definición</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Interpretación Geométrica</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo">Ejemplo</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplicacion-por-escalar">✖️ Multiplicación por Escalar</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Definición</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion">Interpretación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Ejemplo</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#propiedades">⚖️ Propiedades</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normas-de-un-vector">📏 Normas de un Vector</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#norma-euclidiana-l-2">Norma Euclidiana (<span class="math notranslate nohighlight">\(L_2\)</span>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#otras-normas">Otras Normas</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio">Ejercicio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proyeccion-de-un-vector">🎯 Proyección de un Vector</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Definición</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Ejemplo</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resumen">📌 Resumen</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Anónimo
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
