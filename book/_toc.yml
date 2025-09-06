@@ -1,0 +1,9 @@
+format: jb-article
+root: introduccion
+sections:
+- file: cronogramas/index
+  sections: 
+  - file: cronogramas/2025-2
+- file: plano/index
+  sections:
+  - file: plano/operaciones_r2
