@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Taller Matrices 2 \(\times\) 2 &#8212; Gebrathon</title>
+    <title>Taller de Subespacios, Combinaciones Lineales, Independencia y Bases &#8212; Gebrathon</title>
   
   
   
@@ -59,11 +59,11 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'talleres/taller3(matrices2x2)';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'talleres/taller9(espVectoriales)';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Taller Autovalores y Autovectores (Matrices 2x2)" href="taller4%28autoMatrices2x2%29.html" />
-    <link rel="prev" title="Taller Plano \(\mathbb{R}^2\)" href="taller2%28planoR2%29.html" />
+    <link rel="next" title="Taller Subespacios, Combinaciones Lineales, Independencia y Bases" href="taller10%28combLineales%29.html" />
+    <link rel="prev" title="Taller sistemas de Ecuaciones" href="taller8%28sisEcuaciones%29.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -211,13 +211,13 @@
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Talleres computacionales</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="taller1%28vectoresR2%29.html">Taller Vectores en <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="taller2%28planoR2%29.html">Taller Plano <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span></a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Taller Matrices 2 <span class="math notranslate nohighlight">\(\times\)</span> 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="taller3%28matrices2x2%29.html">Taller Matrices 2 <span class="math notranslate nohighlight">\(\times\)</span> 2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="taller4%28autoMatrices2x2%29.html">Taller Autovalores y Autovectores (Matrices 2x2)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="taller5%28codificacion_val_propios%29.html">Taller Valores y Vectores propios (Matrices 2x2)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="taller6%28val_propios_M2x2%29.html">Taller valores y vectores propios (Matrices 2x2)”</a></li>
 <li class="toctree-l2"><a class="reference internal" href="taller7%28opMatricesNxN%29.html">Taller Operaciones con Matrices</a></li>
 <li class="toctree-l2"><a class="reference internal" href="taller8%28sisEcuaciones%29.html">Taller sistemas de Ecuaciones</a></li>
-<li class="toctree-l2"><a class="reference internal" href="taller9%28espVectoriales%29.html">Taller de Subespacios, Combinaciones Lineales, Independencia y Bases</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Taller de Subespacios, Combinaciones Lineales, Independencia y Bases</a></li>
 
 
 
@@ -281,7 +281,7 @@
       
       
       
-      <li><a href="../_sources/talleres/taller3(matrices2x2).ipynb" target="_blank"
+      <li><a href="../_sources/talleres/taller9(espVectoriales).ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -352,7 +352,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -363,11 +365,35 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Taller Matrices 2 \times 2</h1>
+    <h1>Taller de Subespacios, Combinaciones Lineales, Independencia y Bases</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Taller de Subespacios, Combinaciones Lineales, Independencia y Bases</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicios-de-producto-cruz-planos-y-rectas">Ejercicios de Producto Cruz, Planos y Rectas</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seccion-1-producto-cruz">Sección 1: Producto Cruz</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seccion-2-planos">Sección 2: Planos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seccion-3-rectas">Sección 3: Rectas</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicios-adicionales-falso-o-verdadero">Ejercicios Adicionales: Falso o Verdadero</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#author-tu-nombre-date-2025-04-11-format-html">=======
+author: “Tu Nombre”
+date: “2025-04-11”
+format: html</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#enunciados">Enunciados</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas-de-verdadero-o-falso">Preguntas de Verdadero o Falso</a></li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -377,36 +403,154 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="taller-matrices-2-times-2">
-<h1>Taller Matrices 2 <span class="math notranslate nohighlight">\(\times\)</span> 2<a class="headerlink" href="#taller-matrices-2-times-2" title="Link to this heading">#</a></h1>
-<ol class="arabic">
-<li><p>Sea la matriz <span class="math notranslate nohighlight">\(A = \begin{pmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{pmatrix}\)</span> y el vector <span class="math notranslate nohighlight">\(\mathbf{v} = \begin{pmatrix} 1 \\ 2 \end{pmatrix}\)</span>.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="taller-de-subespacios-combinaciones-lineales-independencia-y-bases">
+<h1>Taller de Subespacios, Combinaciones Lineales, Independencia y Bases<a class="headerlink" href="#taller-de-subespacios-combinaciones-lineales-independencia-y-bases" title="Link to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="ejercicios-de-producto-cruz-planos-y-rectas">
+<h1>Ejercicios de Producto Cruz, Planos y Rectas<a class="headerlink" href="#ejercicios-de-producto-cruz-planos-y-rectas" title="Link to this heading">#</a></h1>
+<p>A continuación, se presentan 15 ejercicios repartidos en tres secciones: <strong>Producto Cruz</strong>, <strong>Planos</strong> y <strong>Rectas</strong>.</p>
+<section id="seccion-1-producto-cruz">
+<h2>Sección 1: Producto Cruz<a class="headerlink" href="#seccion-1-producto-cruz" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
-<li><p>Calcula <span class="math notranslate nohighlight">\(A\mathbf{v}\)</span>.</p></li>
-<li><p>Calcula <span class="math notranslate nohighlight">\(A^2\mathbf{v}\)</span>.</p></li>
-<li><p>Calcula <span class="math notranslate nohighlight">\(A\mathbf{v} + A^2\mathbf{v}\)</span>.</p></li>
+<li><p>Calcular el producto cruz de los vectores:<br />
+$<span class="math notranslate nohighlight">\(
+\mathbf{u} = (1, 2, 3) \quad \text{y} \quad \mathbf{v} = (4, 5, 6).
+\)</span>$</p></li>
+<li><p>Determinar el producto cruz de los vectores:<br />
+$<span class="math notranslate nohighlight">\(
+\mathbf{u} = (2, -3, 1) \quad \text{y} \quad \mathbf{v} = (0, 4, -5).
+\)</span>$</p></li>
+<li><p>Encuentra el vector resultante del producto cruz de:<br />
+$<span class="math notranslate nohighlight">\(
+\mathbf{u} = (-1, 2, 0) \quad \text{y} \quad \mathbf{v} = (3, -1, 4).
+\)</span>$</p></li>
+<li><p>Calcular el producto cruz de:<br />
+$<span class="math notranslate nohighlight">\(
+\mathbf{u} = (0, 3, -2) \quad \text{y} \quad \mathbf{v} = (5, 1, 0).
+\)</span>$<br />
+<em>Verifica que el vector resultante sea perpendicular a ambos vectores dados.</em></p></li>
+<li><p>Sean los vectores <span class="math notranslate nohighlight">\( \mathbf{a} = (a_1, a_2, a_3)\)</span> y <span class="math notranslate nohighlight">\( \mathbf{b} = (b_1, b_2, b_3)\)</span>. Expresa el vector <span class="math notranslate nohighlight">\( \mathbf{a} \times \mathbf{b}\)</span> en forma de determinante y aplica este método para calcular el producto cruz de:<br />
+$<span class="math notranslate nohighlight">\(
+\mathbf{a} = (3, 0, -1) \quad \text{y} \quad \mathbf{b} = (1, 4, 2).
+\)</span>$</p></li>
 </ol>
-</li>
-<li><p><strong>Problema en Contexto: Compra de Frutas</strong></p>
-<p>Un comerciante de frutas desea determinar el precio de cada unidad de manzanas y naranjas. Sabe que si compra 4 manzanas y 3 naranjas, el gasto total es de <span class="math notranslate nohighlight">\(26, y que si compra 2 manzanas y 5 naranjas, el gasto es de \)</span>23.</p>
-<p>a) ¿Cuánto costaría comprar 3 manzanas y 4 naranjas?<br />
-b) Verifica la solución sustituyendo los valores en ambas ecuaciones.</p>
-</li>
-<li><p><strong>Problema en Contexto: Producción de Camisas y Pantalones</strong></p>
-<p>Una fábrica produce camisas y pantalones. La
-producción de una camisa requiere 2 horas de trabajo y la de un pantalón 1 hora. El tiempo total de trabajo disponible es de 100 horas por semana. Si la fábrica produce 40 camisas y 60 pantalones, el beneficio semanal es de 3000 dólares, y si produce 60 camisas y 40 pantalones, el beneficio es de 3100 dólares.</p>
-<p>a) ¿Cuál es el beneficio de producir 50 camisas y 50 pantalones?
-b) Verifica la solución sustituyendo los valores en ambas ecuaciones.</p>
-</li>
-<li><p>Si una matriz <span class="math notranslate nohighlight">\(A\)</span> de <span class="math notranslate nohighlight">\(2\times 2\)</span> tiene columnas linealmente independientes, ¿es cierto que <span class="math notranslate nohighlight">\(A\)</span> tiene filas linealmente independientes? Justifica tu respuesta.</p></li>
-<li><p>Escribe 3 formas diferentes de saber si una matriz invertible.</p></li>
-<li><p>Si <span class="math notranslate nohighlight">\(X=(3,6)\)</span> y <span class="math notranslate nohighlight">\(Y=(-2,3)\)</span>, que representaría $<span class="math notranslate nohighlight">\(proy_{X}Y\)</span><span class="math notranslate nohighlight">\( y \)</span><span class="math notranslate nohighlight">\(proy_{Y}X\)</span>$ Grafica la situación.</p></li>
-<li><p>Como podemos interpretar el determinante de una matriz? ¿Qué significa que el determinante sea igual a cero?</p></li>
-<li><p>Los vectores <span class="math notranslate nohighlight">\(\mathbf{v}_1 = (1, 2)\)</span> y <span class="math notranslate nohighlight">\(\mathbf{v}_2 = (-2, 1)\)</span> ortogonales (verifique) entonces son linealmente dependientes. De esta forma, ¿podemos decir que dos vectores ortogonales son linealmente independientes? Justifica tu respuesta. El reciproco ¿es cierto?</p></li>
-<li><p>Sea el sistema de ecuaciones lineales
-$<span class="math notranslate nohighlight">\(Ax=b\)</span><span class="math notranslate nohighlight">\(
-y \)</span>A<span class="math notranslate nohighlight">\( una matriz cuadrada de \)</span>2\times 2<span class="math notranslate nohighlight">\( con determinante distinto de cero. ¿Cuál es la condición para que el sistema tenga solución única? Justifica tu respuesta. ¿Qué sucede si el determinante de \)</span>A$ es igual a cero?</p></li>
-<li><p>¿Qué significa que un conjunto de vectores sea linealmente independiente? ¿Qué significa que un conjunto de vectores sea linealmente dependiente? Da un ejemplo de cada uno.</p></li>
+</section>
+<section id="seccion-2-planos">
+<h2>Sección 2: Planos<a class="headerlink" href="#seccion-2-planos" title="Link to this heading">#</a></h2>
+<ol class="arabic simple" start="6">
+<li><p>Determinar la ecuación del plano que pasa por los puntos:<br />
+$<span class="math notranslate nohighlight">\(
+A(1, 0, 2),\quad B(2, -1, 3) \quad \text{y} \quad C(0, 2, 1).
+\)</span>$<br />
+Utiliza el producto cruz para encontrar el vector normal.</p></li>
+<li><p>Encuentra la ecuación del plano dado su vector normal <span class="math notranslate nohighlight">\( \mathbf{n} = (2, -1, 3)\)</span> y que pasa por el punto <span class="math notranslate nohighlight">\(P(1, 4, -2)\)</span>.</p></li>
+<li><p>Hallar la ecuación general del plano que es paralelo al plano<br />
+$<span class="math notranslate nohighlight">\(
+2x - y + z = 5
+\)</span><span class="math notranslate nohighlight">\(  
+y pasa por el punto \)</span>P(3, 0, 1)$.</p></li>
+<li><p>Determinar la ecuación paramétrica de un plano que contenga la recta:<br />
+$<span class="math notranslate nohighlight">\(
+\begin{cases}
+x = 1 + t, \\
+y = 2 - t, \\
+z = 3 + 2t,
+\end{cases}
+\)</span><span class="math notranslate nohighlight">\(  
+y sea perpendicular al vector \)</span> \mathbf{n} = (0, 1, -1)$.</p></li>
+<li><p>Dados los puntos:<br />
+$<span class="math notranslate nohighlight">\(
+P(0,0,0), \quad Q(1,2,3) \quad \text{y} \quad R(4,0,1),
+\)</span>$<br />
+encuentra la ecuación del plano que pasa por ellos y discute la orientación del mismo.</p></li>
+</ol>
+</section>
+<section id="seccion-3-rectas">
+<h2>Sección 3: Rectas<a class="headerlink" href="#seccion-3-rectas" title="Link to this heading">#</a></h2>
+<ol class="arabic simple" start="11">
+<li><p>Determinar la ecuación vectorial de la recta que pasa por el punto <span class="math notranslate nohighlight">\(P(2, -1, 3)\)</span> con dirección <span class="math notranslate nohighlight">\( \mathbf{d} = (1, 4, -2)\)</span>.</p></li>
+<li><p>Encontrar la forma simétrica de la recta que tiene como ecuación paramétrica:<br />
+$<span class="math notranslate nohighlight">\(
+\begin{cases}
+x = -1 + 3t, \\
+y = 2 - t, \\
+z = 4 + 2t.
+\end{cases}
+\)</span>$</p></li>
+<li><p>Dadas las rectas:<br />
+$<span class="math notranslate nohighlight">\(
+r_1: \begin{cases}
+x = 1 + t, \\
+y = -2 + 2t, \\
+z = 3 - t,
+\end{cases} \quad
+r_2: \begin{cases}
+x = 2 - s, \\
+y = 0 + s, \\
+z = 1 + 3s,
+\end{cases}
+\)</span>$<br />
+determinar si son coplanares y, en caso afirmativo, encontrar su punto de intersección (si existe).</p></li>
+<li><p>Hallar la distancia entre el punto <span class="math notranslate nohighlight">\(P(1,2,3)\)</span> y la recta de ecuación:<br />
+$<span class="math notranslate nohighlight">\(
+\mathbf{r}(t) = (0, 1, -1) + t(2, 0, 4).
+\)</span>$</p></li>
+<li><p>Encuentra la intersección (si existe) entre la recta:<br />
+$<span class="math notranslate nohighlight">\(
+\mathbf{r}_1(t) = (1, 0, 2) + t(3, -1, 1)
+\)</span><span class="math notranslate nohighlight">\(  
+y el plano definido por la ecuación:  
+\)</span><span class="math notranslate nohighlight">\(
+4x - 2y + z = 7.
+\)</span>$</p></li>
+</ol>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="ejercicios-adicionales-falso-o-verdadero">
+<h1>Ejercicios Adicionales: Falso o Verdadero<a class="headerlink" href="#ejercicios-adicionales-falso-o-verdadero" title="Link to this heading">#</a></h1>
+<p>A continuación se presentan 5 enunciados. Indica si cada afirmación es <strong>verdadera</strong> o <strong>falsa</strong> y justifica la respuesta.</p>
+<ol class="arabic simple" start="16">
+<li><p>El producto cruz de dos vectores paralelos es un vector nulo.</p></li>
+<li><p>La ecuación general de un plano siempre puede escribirse en la forma <span class="math notranslate nohighlight">\(Ax + By + Cz + D = 0\)</span>, donde <span class="math notranslate nohighlight">\((A, B, C)\)</span> es un vector normal al plano.</p></li>
+<li><p>Dos rectas en el espacio siempre se cortan, ya que existen en tres dimensiones.</p></li>
+<li><p>El producto cruz es conmutativo, es decir, <span class="math notranslate nohighlight">\(\mathbf{u} \times \mathbf{v} = \mathbf{v} \times \mathbf{u}\)</span>.</p></li>
+<li><p>Si una recta es paralela a un plano, entonces la dirección de la recta es ortogonal al vector normal del plano.</p></li>
+</ol>
+<section id="author-tu-nombre-date-2025-04-11-format-html">
+<h2>=======
+author: “Tu Nombre”
+date: “2025-04-11”
+format: html<a class="headerlink" href="#author-tu-nombre-date-2025-04-11-format-html" title="Link to this heading">#</a></h2>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="enunciados">
+<h1>Enunciados<a class="headerlink" href="#enunciados" title="Link to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p>Sea (W={(x,y,z)\in \mathbb{R}^3 : x-2y+z=0}). Determina si (W) es un subespacio vectorial de (\mathbb{R}^3) justificando cada propiedad.</p></li>
+<li><p>Considera el conjunto (W={(x,y)\in \mathbb{R}^2 : 2x-3y=4}). ¿Es (W) un subespacio vectorial? Explica tu respuesta.</p></li>
+<li><p>Dados (v_1=(1,3,2)) y (v_2=(2,-1,4)) en (\mathbb{R}^3), establece si el vector (w=(5,2,8)) se puede expresar como combinación lineal de (v_1) y (v_2); de ser así, encuentra los escalares correspondientes.</p></li>
+<li><p>Determina si los vectores (v_1=(1,0,2)), (v_2=(0,1,-1)) y (v_3=(3,2,3)) en (\mathbb{R}^3) son linealmente independientes, mostrando los pasos del procedimiento.</p></li>
+<li><p>Sea (W={(x,y,z)\in \mathbb{R}^3 : x+y+z=0}). Encuentra una base para (W) y determina su dimensión.</p></li>
+<li><p>Considera los vectores (v_1=(1,0,0)), (v_2=(0,1,0)) y (v_3=(0,0,1)) en (\mathbb{R}^3). Demuestra que el subespacio generado por estos vectores es (\mathbb{R}^3).</p></li>
+<li><p>Sea (W={(x,y,z)\in \mathbb{R}^3 : 2x-y+3z=0}). Verifica que (W) es un subespacio vectorial y determina su dimensión.</p></li>
+<li><p>Dado el conjunto (S={(1,2),(3,6)}) en (\mathbb{R}^2), decide si los vectores son linealmente independientes y describe el subespacio generado por (S).</p></li>
+<li><p>Considera (v_1=(1,2,1)) y (v_2=(0,1,1)) en (\mathbb{R}^3). Resuelve el sistema para encontrar los coeficientes que permitan expresar (w=(3,5,4)) como combinación lineal de (v_1) y (v_2).</p></li>
+<li><p>Sea (W_1={v_1,v_2,v_3}) un conjunto de vectores linealmente independientes en (\mathbb{R}^4) y (W_2={v_1,v_2,v_3,v_4}) donde (v_4) es combinación lineal de (v_1,v_2,v_3). Compara los subespacios generados por (W_1) y (W_2) y justifica si son iguales o no.</p></li>
+</ol>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="preguntas-de-verdadero-o-falso">
+<h1>Preguntas de Verdadero o Falso<a class="headerlink" href="#preguntas-de-verdadero-o-falso" title="Link to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p><strong>VF1:</strong> Todo subespacio vectorial de (\mathbb{R}^n) debe contener el vector cero.</p></li>
+<li><p><strong>VF2:</strong> Si (W={(x,y,z)\in \mathbb{R}^3: x+y+z=2}), entonces (W) es un subespacio vectorial de (\mathbb{R}^3).</p></li>
+<li><p><strong>VF3:</strong> La combinación lineal de vectores puede producir el vector cero solo si todos los coeficientes son cero.</p></li>
+<li><p><strong>VF4:</strong> Un conjunto de vectores es linealmente dependiente si al menos uno de ellos puede expresarse como combinación lineal de los otros.</p></li>
+<li><p><strong>VF5:</strong> El subespacio generado por un conjunto de vectores siempre es (\mathbb{R}^n) sin importar los vectores elegidos.</p></li>
+<li><p><strong>VF6:</strong> Si un conjunto de vectores en (\mathbb{R}^n) tiene más de (n) vectores, necesariamente son linealmente dependientes.</p></li>
+<li><p><strong>VF7:</strong> La dimensión de un subespacio es el número de vectores en cualquier conjunto que lo genere.</p></li>
+<li><p><strong>VF8:</strong> Si dos conjuntos de vectores generan el mismo subespacio, sus bases tienen el mismo número de elementos.</p></li>
+<li><p><strong>VF9:</strong> Toda combinación lineal de vectores es única.</p></li>
+<li><p><strong>VF10:</strong> La eliminación de Gauss es una técnica que puede usarse para resolver sistemas de ecuaciones lineales y determinar la independencia lineal.</p></li>
 </ol>
 </section>
 
@@ -441,20 +585,20 @@ y \)</span>A<span class="math notranslate nohighlight">\( una matriz cuadrada de
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="taller2%28planoR2%29.html"
+       href="taller8%28sisEcuaciones%29.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Taller Plano <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span></p>
+        <p class="prev-next-title">Taller sistemas de Ecuaciones</p>
       </div>
     </a>
     <a class="right-next"
-       href="taller4%28autoMatrices2x2%29.html"
+       href="taller10%28combLineales%29.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Taller Autovalores y Autovectores (Matrices 2x2)</p>
+        <p class="prev-next-title">Taller Subespacios, Combinaciones Lineales, Independencia y Bases</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -464,6 +608,37 @@ y \)</span>A<span class="math notranslate nohighlight">\( una matriz cuadrada de
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Taller de Subespacios, Combinaciones Lineales, Independencia y Bases</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicios-de-producto-cruz-planos-y-rectas">Ejercicios de Producto Cruz, Planos y Rectas</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seccion-1-producto-cruz">Sección 1: Producto Cruz</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seccion-2-planos">Sección 2: Planos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seccion-3-rectas">Sección 3: Rectas</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicios-adicionales-falso-o-verdadero">Ejercicios Adicionales: Falso o Verdadero</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#author-tu-nombre-date-2025-04-11-format-html">=======
+author: “Tu Nombre”
+date: “2025-04-11”
+format: html</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#enunciados">Enunciados</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas-de-verdadero-o-falso">Preguntas de Verdadero o Falso</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
               
             
           </div>

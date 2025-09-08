@@ -1,0 +1,752 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Taller valores y vectores propios (Matrices 2x2)” &#8212; Gebrathon</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'talleres/taller6(val_propios_M2x2)';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Taller Operaciones con Matrices" href="taller7%28opMatricesNxN%29.html" />
+    <link rel="prev" title="Taller Valores y Vectores propios (Matrices 2x2)" href="taller5%28codificacion_val_propios%29.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo_gebrathon.png" class="logo__image only-light" alt=""/>
+    <script>document.write(`<img src="../_static/logo_gebrathon.png" class="logo__image only-dark" alt=""/>`);</script>
+  
+  
+    <p class="title logo__title">Gebrathon</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cronogramas/index.html">📅 Cronogramas de la Asignatura</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cronogramas/2025-2.html">Cronograma 2025-2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../plano/index.html">📐 Plano en <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../plano/operaciones_r2.html">📘 Operaciones en <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plano/rectas_r2.html">Rectas en <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plano/independencia-lineal.html">Subespacio de <span class="math notranslate nohighlight">\(\mathbb{R}²\)</span></a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../matrices2x2/index.html">🟦 Matrices <span class="math notranslate nohighlight">\(2 \times 2\)</span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../matrices2x2/operaciones_matrices.html">Operaciones con matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../matrices2x2/sistemas_de_ecuaciones.html">Sistemas de Ecuaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../matrices2x2/taller_computacional_matrices.html">Taller Computacional Matrices</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../matrices2x2/autovalores_autovectores.html">Autovalores y Autovectores</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../matricesNxN/index.html">🟩 Matrices <span class="math notranslate nohighlight">\(n \times n\)</span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../matricesNxN/operaciones_matrices.html">Autovalores y autovectores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../matricesNxN/determinantes.html">Determinantes</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../transformaciones/index.html">🌀 Transformaciones en <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../transformaciones/vectores_n2.html">Vectores de <span class="math notranslate nohighlight">\(R^n\)</span></a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Talleres computacionales</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="taller1%28vectoresR2%29.html">Taller Vectores en <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="taller2%28planoR2%29.html">Taller Plano <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="taller3%28matrices2x2%29.html">Taller Matrices 2 <span class="math notranslate nohighlight">\(\times\)</span> 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="taller4%28autoMatrices2x2%29.html">Taller Autovalores y Autovectores (Matrices 2x2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="taller5%28codificacion_val_propios%29.html">Taller Valores y Vectores propios (Matrices 2x2)</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Taller valores y vectores propios (Matrices 2x2)”</a></li>
+<li class="toctree-l2"><a class="reference internal" href="taller7%28opMatricesNxN%29.html">Taller Operaciones con Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="taller8%28sisEcuaciones%29.html">Taller sistemas de Ecuaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="taller9%28espVectoriales%29.html">Taller de Subespacios, Combinaciones Lineales, Independencia y Bases</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="taller10%28combLineales%29.html">Taller Subespacios, Combinaciones Lineales, Independencia y Bases</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="taller11%28vectoresRn%29.html">Taller computacional Vectores en <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span></a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/talleres/taller6(val_propios_M2x2).ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Taller valores y vectores propios (Matrices 2x2)”</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz-con-parametros-determina-los-valores-propios-y-los-vectores-propios-de-la-matriz">1. <strong>Matriz con Parámetros:</strong> Determina los valores propios y los vectores propios de la matriz</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz-con-exponente-sea-la-matriz">2. <strong>Matriz con Exponente:</strong> Sea la matriz</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#propiedades-de-la-suma-y-producto">3. <strong>Propiedades de la Suma y Producto:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz-singular">4. <strong>Matriz Singular:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demuestra-que-si-a-tiene-valores-propios-lambda-1-lambda-2-entonces">5. Demuestra que si <span class="math notranslate nohighlight">\(A\)</span> tiene valores propios <span class="math notranslate nohighlight">\(\lambda_1, \lambda_2\)</span>, entonces:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#de-un-ejemplo-de-matriz-2-times-2-que-no-sea-diagonalizable-y-tenga">6. De un ejemplo de matriz <span class="math notranslate nohighlight">\(2 \times 2\)</span> que no sea diagonalizable y tenga</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#redes-sociales-y-difusion-de-informacion">7. <strong>📲 Redes Sociales y Difusión de Información</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pregunta"><strong>Pregunta</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicacion-en-economia-modelado-de-mercados-interdependientes">8. <strong>📈 Aplicación en Economía: Modelado de Mercados Interdependientes</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contexto-evolucion-de-precios-en-dos-sectores-economicos"><strong>📌 Contexto: Evolución de Precios en Dos Sectores Económicos</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas"><strong>📌 Preguntas</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#responde-si-es-falso-o-verdadero-recuerde-que-el-contexto-a-es-una-matriz-2-times-2">9. <strong>🏗️ Responde si es falso o verdadero, recuerde que el contexto A es una matriz <span class="math notranslate nohighlight">\(2\times 2\)</span></strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grafica-la-figura-que-esta-formada-por-los-puntos">10. <strong>🏠 Gráfica la figura que esta formada por los puntos</strong></a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="taller-valores-y-vectores-propios-matrices-2x2">
+<h1>Taller valores y vectores propios (Matrices 2x2)”<a class="headerlink" href="#taller-valores-y-vectores-propios-matrices-2x2" title="Link to this heading">#</a></h1>
+<section id="matriz-con-parametros-determina-los-valores-propios-y-los-vectores-propios-de-la-matriz">
+<h2>1. <strong>Matriz con Parámetros:</strong> Determina los valores propios y los vectores propios de la matriz<a class="headerlink" href="#matriz-con-parametros-determina-los-valores-propios-y-los-vectores-propios-de-la-matriz" title="Link to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[\begin{split} A = \begin{bmatrix} 2 &amp; a \\ 3 &amp; 4 \end{bmatrix} \end{split}\]</div>
+<p>en función de <span class="math notranslate nohighlight">\(a\)</span>. Analiza los casos en los que los valores propios sean reales o complejos.</p>
+</section>
+<section id="matriz-con-exponente-sea-la-matriz">
+<h2>2. <strong>Matriz con Exponente:</strong> Sea la matriz<a class="headerlink" href="#matriz-con-exponente-sea-la-matriz" title="Link to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[\begin{split} B = \begin{bmatrix} 5 &amp; -2 \\ 1 &amp; 3 \end{bmatrix} \end{split}\]</div>
+<p>Calcula sus valores propios y usa ese resultado para encontrar  <span class="math notranslate nohighlight">\(B^n\)</span> sin multiplicaciones sucesivas.</p>
+</section>
+<section id="propiedades-de-la-suma-y-producto">
+<h2>3. <strong>Propiedades de la Suma y Producto:</strong><a class="headerlink" href="#propiedades-de-la-suma-y-producto" title="Link to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[\begin{split} C = \begin{bmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{bmatrix}, \quad D = \begin{bmatrix} 2 &amp; 0 \\ 0 &amp; 3 \end{bmatrix} \end{split}\]</div>
+<p>¿Se cumple que los valores propios de <span class="math notranslate nohighlight">\(C+D\)</span> son la suma de los valores propios de <span class="math notranslate nohighlight">\(C\)</span> y <span class="math notranslate nohighlight">\(D\)</span>?</p>
+</section>
+<section id="matriz-singular">
+<h2>4. <strong>Matriz Singular:</strong><a class="headerlink" href="#matriz-singular" title="Link to this heading">#</a></h2>
+<p>Encuentra una matriz no nula <span class="math notranslate nohighlight">\(A\)</span> con un valor propio igual a cero. Interpreta geométricamente su efecto sobre los vectores.</p>
+</section>
+<section id="demuestra-que-si-a-tiene-valores-propios-lambda-1-lambda-2-entonces">
+<h2>5. Demuestra que si <span class="math notranslate nohighlight">\(A\)</span> tiene valores propios <span class="math notranslate nohighlight">\(\lambda_1, \lambda_2\)</span>, entonces:<a class="headerlink" href="#demuestra-que-si-a-tiene-valores-propios-lambda-1-lambda-2-entonces" title="Link to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[ 
+\text{traza}(A) = \lambda_1 + \lambda_2, \quad \det(A) = \lambda_1 \lambda_2. 
+\]</div>
+</section>
+<section id="de-un-ejemplo-de-matriz-2-times-2-que-no-sea-diagonalizable-y-tenga">
+<h2>6. De un ejemplo de matriz <span class="math notranslate nohighlight">\(2 \times 2\)</span> que no sea diagonalizable y tenga<a class="headerlink" href="#de-un-ejemplo-de-matriz-2-times-2-que-no-sea-diagonalizable-y-tenga" title="Link to this heading">#</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>a. 1 Valores propio real.
+
+b. 2 Valores propios reales distintos.
+
+c. Valores propios complejos.
+</pre></div>
+</div>
+</section>
+<section id="redes-sociales-y-difusion-de-informacion">
+<h2>7. <strong>📲 Redes Sociales y Difusión de Información</strong><a class="headerlink" href="#redes-sociales-y-difusion-de-informacion" title="Link to this heading">#</a></h2>
+<p>En el mundo digital, las noticias y rumores se propagan rápidamente a través de las redes sociales. Imagina que estamos analizando la difusión de una noticia entre <strong>dos comunidades en línea</strong>:</p>
+<ul class="simple">
+<li><p><strong>Comunidad A</strong>: Un grupo de influencers en Twitter.</p></li>
+<li><p><strong>Comunidad B</strong>: Un grupo de usuarios generales en Facebook.<br />
+Cada día, una <strong>porción de personas en cada comunidad cambia su percepción sobre la noticia</strong> debido a la interacción con otros usuarios. Esta dinámica se modela mediante la siguiente <strong>matriz de transición</strong>:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+A = 
+\begin{bmatrix} 
+   0.9 &amp; 0.1 \\ 
+   0.2 &amp; 0.8 
+\end{bmatrix}
+\end{split}\]</div>
+<p>Donde:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Entrada</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>0.9</strong></p></td>
+<td><p>El 90% de la comunidad A mantiene su opinión actual al día siguiente.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>0.1</strong></p></td>
+<td><p>El 10% de la comunidad A adopta la opinión de la comunidad B.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>0.2</strong></p></td>
+<td><p>El 20% de la comunidad B adopta la opinión de la comunidad A.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>0.8</strong></p></td>
+<td><p>El 80% de la comunidad B mantiene su opinión actual.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="pregunta">
+<h3><strong>Pregunta</strong><a class="headerlink" href="#pregunta" title="Link to this heading">#</a></h3>
+<p>¿Este sistema alcanza un estado estable? Es decir, ¿llegará un momento en que la proporción de personas en cada comunidad con la noticia se mantenga constante? Antes de responder estas preguntas, debes hacer un plan para encontrar la respuesta, escribela.</p>
+</section>
+</section>
+<section id="aplicacion-en-economia-modelado-de-mercados-interdependientes">
+<h2>8. <strong>📈 Aplicación en Economía: Modelado de Mercados Interdependientes</strong><a class="headerlink" href="#aplicacion-en-economia-modelado-de-mercados-interdependientes" title="Link to this heading">#</a></h2>
+<section id="contexto-evolucion-de-precios-en-dos-sectores-economicos">
+<h3><strong>📌 Contexto: Evolución de Precios en Dos Sectores Económicos</strong><a class="headerlink" href="#contexto-evolucion-de-precios-en-dos-sectores-economicos" title="Link to this heading">#</a></h3>
+<p>En economía, los precios de bienes y servicios están interconectados. Por ejemplo, el precio de los metales afecta el costo de fabricación de automóviles, y el precio de la energía impacta la producción industrial.</p>
+<p>Imaginemos un modelo simplificado de <strong>dos sectores económicos</strong>:</p>
+<ul class="simple">
+<li><p><strong>Sector A</strong>: Producción de materias primas (metales, petróleo, insumos básicos).</p></li>
+<li><p><strong>Sector B</strong>: Producción industrial (autos, electrodomésticos, maquinaria).</p></li>
+</ul>
+<p>Cada periodo, los precios en estos sectores cambian en función de la oferta y la demanda, siguiendo la <strong>matriz de transición de precios</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+P_{n+1} = A P_n
+\]</div>
+<p>donde <span class="math notranslate nohighlight">\(P_n\)</span> representa los precios en el periodo <span class="math notranslate nohighlight">\(n\)</span> y la <strong>matriz de influencia</strong> <span class="math notranslate nohighlight">\(A\)</span> es:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+A = 
+\begin{bmatrix} 
+   0.8 &amp; 0.3 \\ 
+   0.2 &amp; 0.7 
+\end{bmatrix}
+\end{split}\]</div>
+<p>Cada entrada de <span class="math notranslate nohighlight">\(A\)</span> indica cómo el precio de un sector influye en sí mismo y en el otro sector.</p>
+<ul class="simple">
+<li><p><strong>0.8</strong>: El 80% del precio en el sector A depende de su propio precio del período anterior.</p></li>
+<li><p><strong>0.3</strong>: El 30% del precio en el sector A depende del precio del sector B del período anterior.</p></li>
+<li><p><strong>0.2</strong>: El 20% del precio en el sector B depende del precio del sector A del período anterior.</p></li>
+<li><p><strong>0.7</strong>: El 70% del precio en el sector B depende de su propio precio del período anterior.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="preguntas">
+<h3><strong>📌 Preguntas</strong><a class="headerlink" href="#preguntas" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>¿Cómo evolucionarán los precios en el largo plazo?</p></li>
+<li><p>¿Se alcanzará un equilibrio en los precios?</p></li>
+<li><p>Encuentra los <strong>valores propios y vectores propios</strong> de la matriz <span class="math notranslate nohighlight">\(A\)</span> y explica como podrían ayudar a responder las preguntas anteriores.</p></li>
+<li><p>Coloca una condiciones iniciales para los precios y calcula los precios en el largo plazo.</p></li>
+</ol>
+</section>
+</section>
+<section id="responde-si-es-falso-o-verdadero-recuerde-que-el-contexto-a-es-una-matriz-2-times-2">
+<h2>9. <strong>🏗️ Responde si es falso o verdadero, recuerde que el contexto A es una matriz <span class="math notranslate nohighlight">\(2\times 2\)</span></strong><a class="headerlink" href="#responde-si-es-falso-o-verdadero-recuerde-que-el-contexto-a-es-una-matriz-2-times-2" title="Link to this heading">#</a></h2>
+<p>a. Si <span class="math notranslate nohighlight">\(A\)</span> es una matriz simétrica, entonces sus valores propios son reales.</p>
+<p>b. Si el sistema <span class="math notranslate nohighlight">\(Ax=b\)</span> tiene infinitas soluciones entonces <span class="math notranslate nohighlight">\(A\)</span> tiene un valor propio igual a cero.</p>
+<p>c. Si una matriz es diagonalizable, entonces sus valores propios son reales.</p>
+<p>d. Si <span class="math notranslate nohighlight">\(A\)</span> tiene un valor propio igual a cero, entonces <span class="math notranslate nohighlight">\(A^{-1}\)</span>  no existe.</p>
+<p>e. Si <span class="math notranslate nohighlight">\(A\)</span> tiene un valor propio igual a cero y otro diferente, entonces <span class="math notranslate nohighlight">\(A\)</span> es no es diagonalizable.</p>
+</section>
+<section id="grafica-la-figura-que-esta-formada-por-los-puntos">
+<h2>10. <strong>🏠 Gráfica la figura que esta formada por los puntos</strong><a class="headerlink" href="#grafica-la-figura-que-esta-formada-por-los-puntos" title="Link to this heading">#</a></h2>
+<p>Observa la figura que se forma al unir los puntos en el plano cartesiano.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Crear la figura y los ejes</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="c1"># **Dibujar las paredes de la casa** (cuadrado)</span>
+<span class="n">paredes_x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">paredes_y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">paredes_x</span><span class="p">,</span> <span class="n">paredes_y</span><span class="p">,</span> <span class="s1">&#39;brown&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># **Dibujar el techo** (triángulo)</span>
+<span class="n">techo_x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">techo_y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">techo_x</span><span class="p">,</span> <span class="n">techo_y</span><span class="p">,</span> <span class="s1">&#39;darkred&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+
+
+<span class="c1"># **Configurar el gráfico**</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39; Casita en el Plano Cartesiano&#39;</span><span class="p">)</span>
+
+<span class="c1"># **Mostrar la gráfica**</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/5e299ed85b4e5963423a79f4910251f3508ae12ceb17094934069dd4315d1c6c.png" src="../_images/5e299ed85b4e5963423a79f4910251f3508ae12ceb17094934069dd4315d1c6c.png" />
+</div>
+</div>
+<p>Esta figura se rota como se muestra en la siguiente gráfica.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># Función para rotar puntos 90 grados en sentido antihorario</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">rotar_90_grados</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="n">matriz_rotacion</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+    <span class="n">puntos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+    <span class="n">puntos_rotados</span> <span class="o">=</span> <span class="n">matriz_rotacion</span> <span class="o">@</span> <span class="n">puntos</span>
+    <span class="k">return</span> <span class="n">puntos_rotados</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:],</span> <span class="n">puntos_rotados</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span>
+
+<span class="c1"># Rotar las paredes</span>
+<span class="n">paredes_x_rot</span><span class="p">,</span> <span class="n">paredes_y_rot</span> <span class="o">=</span> <span class="n">rotar_90_grados</span><span class="p">(</span><span class="n">paredes_x</span><span class="p">,</span> <span class="n">paredes_y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">paredes_x_rot</span><span class="p">,</span> <span class="n">paredes_y_rot</span><span class="p">,</span> <span class="s1">&#39;brown&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># Rotar el techo</span>
+<span class="n">techo_x_rot</span><span class="p">,</span> <span class="n">techo_y_rot</span> <span class="o">=</span> <span class="n">rotar_90_grados</span><span class="p">(</span><span class="n">techo_x</span><span class="p">,</span> <span class="n">techo_y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">techo_x_rot</span><span class="p">,</span> <span class="n">techo_y_rot</span><span class="p">,</span> <span class="s1">&#39;darkred&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># Configurar el gráfico</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39; Casita Rotada 90 Grados en el Plano Cartesiano&#39;</span><span class="p">)</span>
+
+<span class="c1"># Mostrar la gráfica</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/9cfcee4225817bb821db64f310b42f92bd426ed73a392268d0e9e5f0685ed262.png" src="../_images/9cfcee4225817bb821db64f310b42f92bd426ed73a392268d0e9e5f0685ed262.png" />
+</div>
+</div>
+<p>Encuentre la matriz de rotación que se utilizó para rotar la figura.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./talleres"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="taller5%28codificacion_val_propios%29.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Taller Valores y Vectores propios (Matrices 2x2)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="taller7%28opMatricesNxN%29.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Taller Operaciones con Matrices</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz-con-parametros-determina-los-valores-propios-y-los-vectores-propios-de-la-matriz">1. <strong>Matriz con Parámetros:</strong> Determina los valores propios y los vectores propios de la matriz</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz-con-exponente-sea-la-matriz">2. <strong>Matriz con Exponente:</strong> Sea la matriz</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#propiedades-de-la-suma-y-producto">3. <strong>Propiedades de la Suma y Producto:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz-singular">4. <strong>Matriz Singular:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demuestra-que-si-a-tiene-valores-propios-lambda-1-lambda-2-entonces">5. Demuestra que si <span class="math notranslate nohighlight">\(A\)</span> tiene valores propios <span class="math notranslate nohighlight">\(\lambda_1, \lambda_2\)</span>, entonces:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#de-un-ejemplo-de-matriz-2-times-2-que-no-sea-diagonalizable-y-tenga">6. De un ejemplo de matriz <span class="math notranslate nohighlight">\(2 \times 2\)</span> que no sea diagonalizable y tenga</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#redes-sociales-y-difusion-de-informacion">7. <strong>📲 Redes Sociales y Difusión de Información</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pregunta"><strong>Pregunta</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicacion-en-economia-modelado-de-mercados-interdependientes">8. <strong>📈 Aplicación en Economía: Modelado de Mercados Interdependientes</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contexto-evolucion-de-precios-en-dos-sectores-economicos"><strong>📌 Contexto: Evolución de Precios en Dos Sectores Económicos</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas"><strong>📌 Preguntas</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#responde-si-es-falso-o-verdadero-recuerde-que-el-contexto-a-es-una-matriz-2-times-2">9. <strong>🏗️ Responde si es falso o verdadero, recuerde que el contexto A es una matriz <span class="math notranslate nohighlight">\(2\times 2\)</span></strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grafica-la-figura-que-esta-formada-por-los-puntos">10. <strong>🏠 Gráfica la figura que esta formada por los puntos</strong></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Departamento de Ingenieria y Ciencias - Pontificia Universidad Javeriana Cali
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
