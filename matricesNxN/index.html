@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>&lt;no title&gt; &#8212; Gebrathon</title>
+    <title>🟩 Matrices \(n \times n\) &#8212; Gebrathon</title>
   
   
   
@@ -62,7 +62,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'matricesNxN/index';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Autovalores y autovectores" href="autovalores_autovectores.html" />
+    <link rel="next" title="Autovalores y autovectores" href="operaciones_matrices.html" />
     <link rel="prev" title="Autovalores y Autovectores" href="../matrices2x2/autovalores_autovectores.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -175,7 +175,7 @@
  </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../cronogramas/index.html">📅 Cronogramas de la Asignatura</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../cronogramas/2025-2.html">Cronograma 2025-2</a></li>
 </ul>
@@ -198,8 +198,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../matrices2x2/autovalores_autovectores.html">Autovalores y Autovectores</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="autovalores_autovectores.html">Autovalores y autovectores</a></li>
-<li class="toctree-l1"><a class="reference internal" href="determinantes.html">Determinantes</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">🟩 Matrices <span class="math notranslate nohighlight">\(n \times n\)</span></a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="operaciones_matrices.html">Autovalores y autovectores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="determinantes.html">Determinantes</a></li>
+</ul>
+</details></li>
 </ul>
 
     </div>
@@ -325,9 +328,7 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
+
 </div></div>
       
     </div>
@@ -338,7 +339,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1><no title></h1>
+    <h1>🟩 Matrices n \times n</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -352,8 +353,36 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <div class="toctree-wrapper compound">
+  <section class="tex2jax_ignore mathjax_ignore" id="matrices-n-times-n">
+<h1>🟩 Matrices <span class="math notranslate nohighlight">\(n \times n\)</span><a class="headerlink" href="#matrices-n-times-n" title="Link to this heading">#</a></h1>
+<p>Las <strong>matrices cuadradas de tamaño <span class="math notranslate nohighlight">\(n \times n\)</span></strong> son una herramienta central en el álgebra lineal. Nos permiten estudiar propiedades fundamentales como los <strong>determinantes</strong>, la <strong>inversa de una matriz</strong>, y métodos para resolver sistemas de ecuaciones lineales de mayor dimensión.</p>
+<p>En esta sección abordaremos:</p>
+<ul class="simple">
+<li><p><strong>Determinantes</strong>:<br />
+Introduciremos el concepto de determinante, su cálculo y sus aplicaciones.</p>
+<ul>
+<li><p>Regla de Sarrus (para matrices <span class="math notranslate nohighlight">\(3 \times 3\)</span>).</p></li>
+<li><p>Regla de Laplace (expansión por cofactores).</p></li>
+<li><p>Propiedades principales de los determinantes.</p></li>
+</ul>
+</li>
+<li><p><strong>Operaciones con matrices</strong>:<br />
+Estudiaremos cómo multiplicar una matriz por un escalar, cómo aplicar una matriz a un vector, y la multiplicación entre matrices. También veremos la importancia de la <strong>matriz identidad</strong> y el procedimiento para calcular la <strong>matriz inversa</strong>.</p></li>
+<li><p><strong>Matriz escalonada por filas</strong>:<br />
+Presentaremos el método de escalonamiento de matrices y su importancia en la resolución de sistemas de ecuaciones.</p></li>
+<li><p><strong>Trabajo computacional con Python</strong>:<br />
+Implementaremos en Python (con librerías como <strong>NumPy</strong>) varias operaciones con matrices:</p>
+<ul>
+<li><p>Cálculo de determinantes.</p></li>
+<li><p>Obtención de la matriz inversa.</p></li>
+<li><p>Transformación a la forma escalonada por filas.</p></li>
+</ul>
+</li>
+</ul>
+<p>De esta manera, combinaremos la <strong>teoría matemática</strong> con la <strong>práctica computacional</strong>, aplicando los conceptos de matrices <span class="math notranslate nohighlight">\(n \times n\)</span> tanto en papel como en programas.</p>
+<div class="toctree-wrapper compound">
 </div>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -395,7 +424,7 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="autovalores_autovectores.html"
+       href="operaciones_matrices.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
