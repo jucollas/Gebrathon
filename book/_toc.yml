@@ -1,5 +1,5 @@
 format: jb-article
-root: introduccion
+root: index
 sections:
 - file: cronogramas/index
   sections: 
