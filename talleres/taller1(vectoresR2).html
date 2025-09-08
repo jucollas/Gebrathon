@@ -1,0 +1,697 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Taller Vectores en \(\mathbb{R}^2\) &#8212; Gebrathon</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'talleres/taller1(vectoresR2)';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Taller Plano \(\mathbb{R}^2\)" href="taller2%28planoR2%29.html" />
+    <link rel="prev" title="Talleres computacionales" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo_gebrathon.png" class="logo__image only-light" alt=""/>
+    <script>document.write(`<img src="../_static/logo_gebrathon.png" class="logo__image only-dark" alt=""/>`);</script>
+  
+  
+    <p class="title logo__title">Gebrathon</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cronogramas/index.html">📅 Cronogramas de la Asignatura</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cronogramas/2025-2.html">Cronograma 2025-2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../plano/index.html">📐 Plano en <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../plano/operaciones_r2.html">📘 Operaciones en <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plano/rectas_r2.html">Rectas en <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plano/independencia-lineal.html">Subespacio de <span class="math notranslate nohighlight">\(\mathbb{R}²\)</span></a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../matrices2x2/index.html">🟦 Matrices <span class="math notranslate nohighlight">\(2 \times 2\)</span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../matrices2x2/operaciones_matrices.html">Operaciones con matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../matrices2x2/sistemas_de_ecuaciones.html">Sistemas de Ecuaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../matrices2x2/taller_computacional_matrices.html">Taller Computacional Matrices</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../matrices2x2/autovalores_autovectores.html">Autovalores y Autovectores</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../matricesNxN/index.html">🟩 Matrices <span class="math notranslate nohighlight">\(n \times n\)</span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../matricesNxN/operaciones_matrices.html">Autovalores y autovectores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../matricesNxN/determinantes.html">Determinantes</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../transformaciones/index.html">🌀 Transformaciones en <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../transformaciones/vectores_n2.html">Vectores de <span class="math notranslate nohighlight">\(R^n\)</span></a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Talleres computacionales</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Taller Vectores en <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="taller2%28planoR2%29.html">Taller Plano <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="taller3%28matrices2x2%29.html">Taller Matrices 2 <span class="math notranslate nohighlight">\(\times\)</span> 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="taller4%28autoMatrices2x2%29.html">Taller Autovalores y Autovectores (Matrices 2x2)</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/talleres/taller1(vectoresR2).ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Taller Vectores en \mathbb{R}^2</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicios-1">Ejercicios 1</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-2">Ejercicio 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-3">Ejercicio 3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-4">Ejercicio 4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-5">Ejercicio 5</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-6">Ejercicio 6</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-7">Ejercicio 7</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-8">Ejercicio 8</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="taller-vectores-en-mathbb-r-2">
+<h1>Taller Vectores en <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span><a class="headerlink" href="#taller-vectores-en-mathbb-r-2" title="Link to this heading">#</a></h1>
+<section id="ejercicios-1">
+<h2>Ejercicios 1<a class="headerlink" href="#ejercicios-1" title="Link to this heading">#</a></h2>
+<p>Responda Falso o verdadero a las siguientes afirmaciones. Justifique su respuesta.</p>
+<p><strong>Problema 5.1.1 (VF1).</strong> En <span class="math notranslate nohighlight">\(R^2\)</span>, todo subespacio vectorial debe contener el vector cero.</p>
+<p><strong>Problema 5.2.1 (VF2).</strong> Sea <span class="math notranslate nohighlight">\(W={(x,y)\in R^2: x+y=2}\)</span>. Entonces <span class="math notranslate nohighlight">\(W\)</span> es un subespacio vectorial de <span class="math notranslate nohighlight">\(R^2\)</span>.</p>
+<p><strong>Problema 5.4.1 (VF3).</strong> En <span class="math notranslate nohighlight">\(R^2\)</span>, una combinación lineal de vectores puede producir el vector cero solo si todos los coeficientes son cero.</p>
+<p><strong>Problema 5.4.2 (VF4).</strong> Un conjunto de vectores en <span class="math notranslate nohighlight">\(R^2\)</span> es linealmente dependiente si al menos uno de ellos puede expresarse como combinación lineal de los otros.</p>
+<p><strong>Problema 5.3.1 (VF5).</strong> El subespacio generado por cualquier conjunto de vectores en <span class="math notranslate nohighlight">\(R^2\)</span> siempre es todo <span class="math notranslate nohighlight">\(R^2\)</span>, sin importar los vectores elegidos.</p>
+<p><strong>Problema 5.4.3 (VF6).</strong> Si un conjunto de vectores en <span class="math notranslate nohighlight">\(R^2\)</span> tiene más de 2 vectores, necesariamente es linealmente dependiente.</p>
+<p><strong>Problema 5.5.1 (VF7).</strong> La dimensión de un subespacio de <span class="math notranslate nohighlight">\(R^2\)</span> es el número de vectores en cualquier conjunto que lo genere.</p>
+<p><strong>Problema 5.5.2 (VF8).</strong> Si dos conjuntos de vectores generan el mismo subespacio de <span class="math notranslate nohighlight">\(R^2\)</span>, entonces cualquier base de ese subespacio tiene el mismo número de elementos.</p>
+<p><strong>Problema 5.5.3 (VF9).</strong> En <span class="math notranslate nohighlight">\(R^2\)</span>, toda combinación lineal de vectores es única.</p>
+<p><strong>Problema 1.2.1 (VF10).</strong>  El span de los vectores <span class="math notranslate nohighlight">\(\mathbf{u} = (1, 2)\)</span> y <span class="math notranslate nohighlight">\(\mathbf{v} = (3, 4)\)</span> es un subespacio propio de <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>.</p>
+<section id="ejercicio-2">
+<h3>Ejercicio 2<a class="headerlink" href="#ejercicio-2" title="Link to this heading">#</a></h3>
+<p>Sean los vectores <span class="math notranslate nohighlight">\(\mathbf{u} = (3, -1)\)</span> y <span class="math notranslate nohighlight">\(\mathbf{v} = (2, 4)\)</span>.</p>
+<ol class="arabic">
+<li><p>Calcula <span class="math notranslate nohighlight">\(\mathbf{u} + \mathbf{v}\)</span>.</p></li>
+<li><p>Calcula <span class="math notranslate nohighlight">\(2\mathbf{u} - 3\mathbf{v}\)</span>.</p></li>
+<li><p>Verifica la propiedad distributiva:</p>
+<div class="math notranslate nohighlight">
+\[\alpha(\mathbf{u} + \mathbf{v}) \stackrel{?}{=} \alpha\mathbf{u} + \alpha\mathbf{v}\]</div>
+<p>tomando <span class="math notranslate nohighlight">\(\alpha = -1\)</span>.</p>
+</li>
+</ol>
+<blockquote>
+<div><p><strong>Pista</strong>: Solo necesitas comparar ambos lados de la igualdad para concluir.</p>
+</div></blockquote>
+</section>
+<section id="ejercicio-3">
+<h3>Ejercicio 3<a class="headerlink" href="#ejercicio-3" title="Link to this heading">#</a></h3>
+<p>Con los mismos vectores <span class="math notranslate nohighlight">\(\mathbf{u} = (3, -1)\)</span> y <span class="math notranslate nohighlight">\(\mathbf{v} = (2, 4)\)</span>:</p>
+<ol class="arabic simple">
+<li><p>Halla <span class="math notranslate nohighlight">\(\mathbf{u} \cdot \mathbf{v}\)</span>.</p></li>
+<li><p>Verifica la propiedad de conmutatividad <span class="math notranslate nohighlight">\(\mathbf{u} \cdot \mathbf{v} = \mathbf{v} \cdot \mathbf{u}\)</span>.</p></li>
+<li><p>Encuentra el vector <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> y comprueba que
+$<span class="math notranslate nohighlight">\(\mathbf{v}\cdot\mathbf{v}=||\mathbf{v}||^2.\)</span>$</p></li>
+<li><p>Calcula el vector proyección de <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> sobre <span class="math notranslate nohighlight">\(\mathbf{v}\)</span>, es decir, <span class="math notranslate nohighlight">\(\text{proj}_{\mathbf{v}}\mathbf{u}\)</span>.</p></li>
+</ol>
+<blockquote>
+<div><p><strong>Pista</strong>: Usa la fórmula:</p>
+<div class="math notranslate nohighlight">
+\[\text{proj}_{\mathbf{v}}\mathbf{u} = \left(\frac{\mathbf{u} \cdot \mathbf{v}}{\|\mathbf{v}\|^2}\right)\mathbf{v}.\]</div>
+</div></blockquote>
+<ol class="arabic" start="5">
+<li><p>Interpreta geometricamente que significa la proyección de un vector sobre otro.</p></li>
+<li><p>Describa si la siguiente afirmaciones son es verdaderas o falsas:</p>
+<blockquote>
+<div><p>Si <span class="math notranslate nohighlight">\(\mathbf{u} \cdot \mathbf{v} = 0\)</span>, entonces <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> y <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> son ortogonales.</p>
+</div></blockquote>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[\Big|\Big|\frac{\mathbf{u}\cdot\mathbf{v}}{||v||^2}\mathbf{v}\Big|\Big| = \frac{|\mathbf{u}\cdot\mathbf{v}|}{||\mathbf{v}||}\]</div>
+</div></blockquote>
+</li>
+<li><p>Use el procedimiento anterior para calcular el ángulo entre los vectores <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> y <span class="math notranslate nohighlight">\(\mathbf{v}\)</span>.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_projection_and_angle</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Grafica los vectores u y v, su proyección, y muestra el ángulo entre ellos.</span>
+
+<span class="sd">    Parámetros:</span>
+<span class="sd">    u -- numpy array de tamaño (2,), vector u</span>
+<span class="sd">    v -- numpy array de tamaño (2,), vector v</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Calculamos la proyección de u sobre v</span>
+    <span class="n">proj_u_on_v</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span> <span class="o">*</span> <span class="n">v</span>
+
+    <span class="c1"># Calculamos el ángulo en radianes y lo convertimos a grados</span>
+    <span class="n">cos_theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
+    <span class="n">theta_rad</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">cos_theta</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>  <span class="c1"># Evita errores numéricos fuera de [-1,1]</span>
+    <span class="n">theta_deg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">theta_rad</span><span class="p">)</span>
+
+    <span class="c1"># Configuración de la gráfica</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">angles</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale_units</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;u&#39;</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">proj_u_on_v</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">proj_u_on_v</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">angles</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale_units</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;proj_u_on_v&#39;</span><span class="p">)</span>    
+    <span class="n">plt</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">angles</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale_units</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;v&#39;</span><span class="p">)</span>
+    <span class="c1"># Dibuja la línea discontinua de la proyección</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">proj_u_on_v</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="p">[</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">proj_u_on_v</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="s1">&#39;g--&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Configurar los ejes con la misma escala</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>  <span class="c1"># Hace que las unidades en x e y sean iguales</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+    <span class="c1"># Añadimos etiquetas y leyenda</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Proyección de u sobre v</span><span class="se">\n</span><span class="s1">Ángulo entre u y v: </span><span class="si">{</span><span class="n">theta_deg</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">°&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Mostrar la gráfica</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">theta_deg</span>
+
+<span class="c1"># Ejemplo de uso</span>
+<span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">angulo</span> <span class="o">=</span> <span class="n">plot_projection_and_angle</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+<span class="c1">#rint(f&#39;El ángulo entre u y v es: {angulo:.2f}°&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/9e01d2aacc4d47f8ff10628820e1ed6ee8a9530ee6715ab7feefcf1ac712b1a2.png" src="../_images/9e01d2aacc4d47f8ff10628820e1ed6ee8a9530ee6715ab7feefcf1ac712b1a2.png" />
+</div>
+</div>
+<ol class="arabic" start="8">
+<li><p>Calcula el ángulo <span class="math notranslate nohighlight">\(\theta\)</span> entre <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> y <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> usando la fórmula:</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{u} \cdot \mathbf{v} = \|\mathbf{u}\|\,\|\mathbf{v}\|\cos(\theta).\]</div>
+</li>
+</ol>
+</section>
+<section id="ejercicio-4">
+<h3>Ejercicio 4<a class="headerlink" href="#ejercicio-4" title="Link to this heading">#</a></h3>
+<p>Dada la recta que pasa por el punto <span class="math notranslate nohighlight">\(\mathbf{P} = (1, -2)\)</span> y que <strong>tiene como dirección</strong> el vector <span class="math notranslate nohighlight">\(\mathbf{P} = (2, 3)\)</span>:</p>
+<ol class="arabic">
+<li><p>Escribe su <strong>ecuación paramétrica</strong> en <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>.</p>
+<blockquote>
+<div><p>Recuerda que la forma paramétrica se describe como:</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{r}(t) = \mathbf{P} + t\,\mathbf{v}, \quad t \in \mathbb{R}.\]</div>
+</div></blockquote>
+</li>
+<li><p>Verifica que el punto <span class="math notranslate nohighlight">\(\mathbf{Q} = (3,5)\)</span> <strong>no</strong> pertenece a dicha recta (sustituyendo en la forma paramétrica y comprobando si existe un valor de <span class="math notranslate nohighlight">\(t\)</span> que lo satisfaga).</p></li>
+<li><p>Escribe la ecuación de forma cartesiana, es decir de la forma <span class="math notranslate nohighlight">\(y =ax+b\)</span>.</p></li>
+</ol>
+</section>
+<section id="ejercicio-5">
+<h3>Ejercicio 5<a class="headerlink" href="#ejercicio-5" title="Link to this heading">#</a></h3>
+<p>Considera la recta <span class="math notranslate nohighlight">\(r_1\)</span> en forma paramétrica:</p>
+<div class="math notranslate nohighlight">
+\[r_1: \quad \mathbf{r}(t) = (2, 1) + t \, (3, -1).\]</div>
+<ol class="arabic">
+<li><p>Encuentra la <strong>ecuación paramétrica</strong> de la recta <span class="math notranslate nohighlight">\(r_2\)</span> <strong>paralela</strong> a <span class="math notranslate nohighlight">\(r_1\)</span> y que pase por el punto <span class="math notranslate nohighlight">\((4,2)\)</span>.</p>
+<blockquote>
+<div><p>Dos rectas son paralelas si sus vectores direccionales son múltiplos.</p>
+</div></blockquote>
+</li>
+<li><p>Encuentra la <strong>ecuación paramétrica</strong> de la recta <span class="math notranslate nohighlight">\(r_3\)</span> <strong>perpendicular</strong> a <span class="math notranslate nohighlight">\(r_1\)</span> que pase por <span class="math notranslate nohighlight">\((4,2)\)</span>.</p>
+<blockquote>
+<div><p>Dos rectas en <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span> son perpendiculares si sus vectores direccionales <span class="math notranslate nohighlight">\(\mathbf{d_1}\)</span> y <span class="math notranslate nohighlight">\(\mathbf{d_2}\)</span> cumplen <span class="math notranslate nohighlight">\(\mathbf{d_1}\cdot \mathbf{d_2} = 0\)</span>.</p>
+</div></blockquote>
+</li>
+<li><p>Determina el <strong>punto de intersección</strong> entre <span class="math notranslate nohighlight">\(r_3\)</span> y la recta <span class="math notranslate nohighlight">\(r_1\)</span>.</p></li>
+</ol>
+</section>
+<section id="ejercicio-6">
+<h3>Ejercicio 6<a class="headerlink" href="#ejercicio-6" title="Link to this heading">#</a></h3>
+<p>Sea <span class="math notranslate nohighlight">\(\{\mathbf{w}_1, \mathbf{w}_2\}\)</span> con <span class="math notranslate nohighlight">\(\mathbf{w}_1 = (1, 3)\)</span> y <span class="math notranslate nohighlight">\(\mathbf{w}_2 = (2, 6)\)</span>.</p>
+<ol class="arabic simple">
+<li><p>Determina si <span class="math notranslate nohighlight">\(\mathbf{w}_1\)</span> y <span class="math notranslate nohighlight">\(\mathbf{w}_2\)</span> son linealmente <strong>dependientes</strong> o <strong>independientes</strong>. Explica tu proceso.</p></li>
+<li><p>Si son dependientes, describe la relación de dependencia. Si son independientes, justifica por qué.</p></li>
+</ol>
+</section>
+<section id="ejercicio-7">
+<h3>Ejercicio 7<a class="headerlink" href="#ejercicio-7" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Explica en tus propias palabras qué significa que un conjunto de vectores sea <strong>base</strong> de <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>.</p></li>
+<li><p>Dados los vectores <span class="math notranslate nohighlight">\(\mathbf{a} = (1, 2)\)</span> y <span class="math notranslate nohighlight">\(\mathbf{b} = (2, 1)\)</span>, <strong>¿son una base de</strong> <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>?</p>
+<ul class="simple">
+<li><p>Justifica tu respuesta usando <strong>independencia lineal</strong></p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="ejercicio-8">
+<h3>Ejercicio 8<a class="headerlink" href="#ejercicio-8" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>¿Por qué <span class="math notranslate nohighlight">\(\{(0,0)\}\)</span> (el conjunto que solo contiene al vector cero) es un <strong>subespacio</strong> de <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>?</p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(S\)</span> es el conjunto de todos los vectores <span class="math notranslate nohighlight">\((x, y)\)</span> tales que <span class="math notranslate nohighlight">\(x + y = 0\)</span>, demuestra que <strong><span class="math notranslate nohighlight">\(S\)</span> es un subespacio</strong> de <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>.</p></li>
+<li><p>Determina una <strong>base</strong> para el subespacio <span class="math notranslate nohighlight">\(S\)</span>.</p></li>
+</ol>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./talleres"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Talleres computacionales</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="taller2%28planoR2%29.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Taller Plano <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicios-1">Ejercicios 1</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-2">Ejercicio 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-3">Ejercicio 3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-4">Ejercicio 4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-5">Ejercicio 5</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-6">Ejercicio 6</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-7">Ejercicio 7</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-8">Ejercicio 8</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Departamento de Ingenieria y Ciencias - Pontificia Universidad Javeriana Cali
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
