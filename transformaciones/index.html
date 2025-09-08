@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>🟩 Matrices \(n \times n\) &#8212; Gebrathon</title>
+    <title>🌀 Transformaciones en \(\mathbb{R}^n\) &#8212; Gebrathon</title>
   
   
   
@@ -59,11 +59,11 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'matricesNxN/index';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'transformaciones/index';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Autovalores y autovectores" href="operaciones_matrices.html" />
-    <link rel="prev" title="Autovalores y Autovectores" href="../matrices2x2/autovalores_autovectores.html" />
+    <link rel="next" title="Vectores de \(R^n\)" href="vectores_n2.html" />
+    <link rel="prev" title="Determinantes" href="../matricesNxN/determinantes.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -198,13 +198,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../matrices2x2/autovalores_autovectores.html">Autovalores y Autovectores</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">🟩 Matrices <span class="math notranslate nohighlight">\(n \times n\)</span></a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="operaciones_matrices.html">Autovalores y autovectores</a></li>
-<li class="toctree-l2"><a class="reference internal" href="determinantes.html">Determinantes</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../matricesNxN/index.html">🟩 Matrices <span class="math notranslate nohighlight">\(n \times n\)</span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../matricesNxN/operaciones_matrices.html">Autovalores y autovectores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../matricesNxN/determinantes.html">Determinantes</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../transformaciones/index.html">🌀 Transformaciones en <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../transformaciones/vectores_n2.html">Vectores de <span class="math notranslate nohighlight">\(R^n\)</span></a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">🌀 Transformaciones en <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span></a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="vectores_n2.html">Vectores de <span class="math notranslate nohighlight">\(R^n\)</span></a></li>
 
 </ul>
 </details></li>
@@ -262,7 +262,7 @@
       
       
       
-      <li><a href="../_sources/matricesNxN/index.md" target="_blank"
+      <li><a href="../_sources/transformaciones/index.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -344,7 +344,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>🟩 Matrices n \times n</h1>
+    <h1>🌀 Transformaciones en \mathbb{R}^n</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -358,33 +358,29 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="matrices-n-times-n">
-<h1>🟩 Matrices <span class="math notranslate nohighlight">\(n \times n\)</span><a class="headerlink" href="#matrices-n-times-n" title="Link to this heading">#</a></h1>
-<p>Las <strong>matrices cuadradas de tamaño <span class="math notranslate nohighlight">\(n \times n\)</span></strong> son una herramienta central en el álgebra lineal. Nos permiten estudiar propiedades fundamentales como los <strong>determinantes</strong>, la <strong>inversa de una matriz</strong>, y métodos para resolver sistemas de ecuaciones lineales de mayor dimensión.</p>
-<p>En esta sección abordaremos:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="transformaciones-en-mathbb-r-n">
+<h1>🌀 Transformaciones en <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span><a class="headerlink" href="#transformaciones-en-mathbb-r-n" title="Link to this heading">#</a></h1>
+<p>Las <strong>transformaciones en espacios vectoriales</strong> son fundamentales en álgebra lineal, ya que nos permiten comprender cómo los vectores se combinan, se miden y se relacionan entre sí en <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>. En esta sección exploraremos tanto propiedades básicas de vectores como operaciones más avanzadas en tres dimensiones.</p>
+<p>Los temas que estudiaremos son:</p>
 <ul class="simple">
-<li><p><strong>Determinantes</strong>:<br />
-Introduciremos el concepto de determinante, su cálculo y sus aplicaciones.</p>
+<li><p><strong>Vectores en <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span></strong>:</p>
 <ul>
-<li><p>Regla de Sarrus (para matrices <span class="math notranslate nohighlight">\(3 \times 3\)</span>).</p></li>
-<li><p>Regla de Laplace (expansión por cofactores).</p></li>
-<li><p>Propiedades principales de los determinantes.</p></li>
+<li><p>Propiedades de la suma y la multiplicación de vectores.</p></li>
+<li><p>Propiedades del producto punto.</p></li>
+<li><p>Normas de vectores y sus propiedades.</p></li>
+<li><p>Interpretación geométrica de la norma de un vector en <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>.</p></li>
+<li><p>Relación entre la norma y el producto punto.</p></li>
+<li><p>Desigualdad de <strong>Cauchy–Schwarz</strong> y su importancia en el análisis de vectores.</p></li>
 </ul>
 </li>
-<li><p><strong>Operaciones con matrices</strong>:<br />
-Estudiaremos cómo multiplicar una matriz por un escalar, cómo aplicar una matriz a un vector, y la multiplicación entre matrices. También veremos la importancia de la <strong>matriz identidad</strong> y el procedimiento para calcular la <strong>matriz inversa</strong>.</p></li>
-<li><p><strong>Matriz escalonada por filas</strong>:<br />
-Presentaremos el método de escalonamiento de matrices y su importancia en la resolución de sistemas de ecuaciones.</p></li>
-<li><p><strong>Trabajo computacional con Python</strong>:<br />
-Implementaremos en Python (con librerías como <strong>NumPy</strong>) varias operaciones con matrices:</p>
+<li><p><strong>Producto Cruz en <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span></strong>:</p>
 <ul>
-<li><p>Cálculo de determinantes.</p></li>
-<li><p>Obtención de la matriz inversa.</p></li>
-<li><p>Transformación a la forma escalonada por filas.</p></li>
+<li><p>Definición y propiedades del producto cruz.</p></li>
+<li><p>Aplicaciones en la representación de <strong>rectas y planos en <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span></strong>.</p></li>
 </ul>
 </li>
 </ul>
-<p>De esta manera, combinaremos la <strong>teoría matemática</strong> con la <strong>práctica computacional</strong>, aplicando los conceptos de matrices <span class="math notranslate nohighlight">\(n \times n\)</span> tanto en papel como en programas.</p>
+<p>Esta sección servirá como puente entre el estudio básico de vectores y las <strong>transformaciones lineales</strong>, sentando las bases para comprender cómo se comportan las operaciones en distintos espacios.</p>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -402,7 +398,7 @@ Implementaremos en Python (con librerías como <strong>NumPy</strong>) varias op
         },
         kernelOptions: {
             name: "python3",
-            path: "./matricesNxN"
+            path: "./transformaciones"
         },
         predefinedOutput: true
     }
@@ -420,20 +416,20 @@ Implementaremos en Python (con librerías como <strong>NumPy</strong>) varias op
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../matrices2x2/autovalores_autovectores.html"
+       href="../matricesNxN/determinantes.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Autovalores y Autovectores</p>
+        <p class="prev-next-title">Determinantes</p>
       </div>
     </a>
     <a class="right-next"
-       href="operaciones_matrices.html"
+       href="vectores_n2.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Autovalores y autovectores</p>
+        <p class="prev-next-title">Vectores de <span class="math notranslate nohighlight">\(R^n\)</span></p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
