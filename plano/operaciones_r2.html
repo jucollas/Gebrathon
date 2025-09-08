@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -143,7 +143,7 @@
     
   
 
-<a class="navbar-brand logo" href="../introduccion.html">
+<a class="navbar-brand logo" href="../index.html">
   
   
   
@@ -342,25 +342,28 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo">Ejemplo</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplicacion-por-escalar">✖️ Multiplicación por Escalar</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplicacion-por-un-escalar">✖️ Multiplicación por un Escalar</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Definición</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion">Interpretación</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Ejemplo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Interpretación Geométrica</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Ejemplo</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#propiedades">⚖️ Propiedades</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#propiedades-en-mathbb-r-2">⚖️ Propiedades en <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normas-de-un-vector">📏 Normas de un Vector</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#norma-euclidiana-l-2">Norma Euclidiana (<span class="math notranslate nohighlight">\(L_2\)</span>)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#otras-normas">Otras Normas</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio">Ejercicio</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proyeccion-de-un-vector">🎯 Proyección de un Vector</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Definición</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Ejemplo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio">Ejercicio</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#propiedades-de-la-norma">Propiedades de la Norma</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resumen">📌 Resumen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proyeccion-de-un-vector-en-mathbb-r-2">Proyección de un Vector en <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">5.1 Definición</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">5.2 Ejemplo</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resumen">6. Resumen</a></li>
 </ul>
             </nav>
         </div>
@@ -401,84 +404,132 @@ $<span class="math notranslate nohighlight">\(
 <h2>➕ Suma de Vectores<a class="headerlink" href="#suma-de-vectores" title="Link to this heading">#</a></h2>
 <section id="id1">
 <h3>Definición<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
-<p>Dado <span class="math notranslate nohighlight">\(\mathbf{u}=(u_1,u_2)\)</span> y <span class="math notranslate nohighlight">\(\mathbf{v}=(v_1,v_2)\)</span>:
+<p>Dadas dos vectores en el plano
 $<span class="math notranslate nohighlight">\(
-\mathbf{u}+\mathbf{v} = (u_1+v_1, \, u_2+v_2).
+\mathbf{u}=(u_1,u_2), \quad \mathbf{v}=(v_1,v_2),
+\)</span><span class="math notranslate nohighlight">\(
+su **suma** se define como:
+\)</span><span class="math notranslate nohighlight">\(
+\mathbf{u}+\mathbf{v}=(u_1+v_1,\;u_2+v_2).
 \)</span>$</p>
 </section>
 <section id="id2">
 <h3>Interpretación Geométrica<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>Para sumar <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> y <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> en el plano se puede usar:</p>
 <ul class="simple">
-<li><p><strong>Regla del paralelogramo</strong> o método <strong>cabeza-cola</strong>.</p></li>
+<li><p><strong>Regla del paralelogramo</strong>: colocar ambos vectores con el mismo punto de partida y formar un paralelogramo; la diagonal representa la suma.</p></li>
+<li><p><strong>Método cabeza-cola</strong>: trasladar (sin rotar) el vector <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> de modo que su cola coincida con la cabeza de <span class="math notranslate nohighlight">\(\mathbf{u}\)</span>. El vector resultante va desde la cola de <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> hasta la cabeza de <span class="math notranslate nohighlight">\(\mathbf{v}\)</span>.</p></li>
 </ul>
 </section>
 <section id="ejemplo">
 <h3>Ejemplo<a class="headerlink" href="#ejemplo" title="Link to this heading">#</a></h3>
-<div class="math notranslate nohighlight">
-\[
-\mathbf{u}=(2,3),\quad \mathbf{v}=(-1,5).
-\]</div>
-<p>Entonces:
+<p>Si
 $<span class="math notranslate nohighlight">\(
-\mathbf{u}+\mathbf{v}=(1,8).
+\mathbf{u}=(2,3),\quad \mathbf{v}=(-1,5),
+\)</span><span class="math notranslate nohighlight">\(
+entonces:
+\)</span><span class="math notranslate nohighlight">\(
+\mathbf{u}+\mathbf{v}=(2+(-1),\;3+5)=(1,8).
 \)</span>$</p>
 </section>
 </section>
-<section id="multiplicacion-por-escalar">
-<h2>✖️ Multiplicación por Escalar<a class="headerlink" href="#multiplicacion-por-escalar" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<section id="multiplicacion-por-un-escalar">
+<h2>✖️ Multiplicación por un Escalar<a class="headerlink" href="#multiplicacion-por-un-escalar" title="Link to this heading">#</a></h2>
 <section id="id3">
 <h3>Definición<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
-<p>Si <span class="math notranslate nohighlight">\(\alpha \in \mathbb{R}\)</span> y <span class="math notranslate nohighlight">\(\mathbf{v}=(v_1,v_2)\)</span>:
+<p>Dado un vector <span class="math notranslate nohighlight">\(\mathbf{v}=(v_1,v_2)\)</span> y un número real <span class="math notranslate nohighlight">\(\alpha \in \mathbb{R}\)</span> (llamado <strong>escalar</strong>), la multiplicación se define como:
 $<span class="math notranslate nohighlight">\(
-\alpha \mathbf{v} = (\alpha v_1, \alpha v_2).
+\alpha \mathbf{v}=(\alpha v_1,\;\alpha v_2).
 \)</span>$</p>
 </section>
-<section id="interpretacion">
-<h3>Interpretación<a class="headerlink" href="#interpretacion" title="Link to this heading">#</a></h3>
+<section id="id4">
+<h3>Interpretación Geométrica<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p>Estira o encoge el vector.</p></li>
-<li><p>Si <span class="math notranslate nohighlight">\(\alpha&lt;0\)</span>, invierte su dirección.</p></li>
+<li><p>Multiplicar un vector por un escalar <strong>estira</strong> o <strong>encoge</strong> al vector.</p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(\alpha&lt;0\)</span>, además de cambiar su longitud, <strong>invierte su dirección</strong>.</p></li>
 </ul>
 </section>
-<section id="id4">
-<h3>Ejemplo<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
-<div class="math notranslate nohighlight">
-\[
-\mathbf{v}=(2,-1),\quad 3\mathbf{v}=(6,-3).
-\]</div>
+<section id="id5">
+<h3>Ejemplo<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>Sea <span class="math notranslate nohighlight">\(\mathbf{v}=(2,-1)\)</span> y <span class="math notranslate nohighlight">\(\alpha=3\)</span>. Entonces:
+$<span class="math notranslate nohighlight">\(
+3\mathbf{v}=3\cdot(2,-1)=(6,-3).
+\)</span>$</p>
 </section>
 </section>
-<section id="propiedades">
-<h2>⚖️ Propiedades<a class="headerlink" href="#propiedades" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<section id="propiedades-en-mathbb-r-2">
+<h2>⚖️ Propiedades en <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span><a class="headerlink" href="#propiedades-en-mathbb-r-2" title="Link to this heading">#</a></h2>
+<p>Las operaciones de suma de vectores y multiplicación por escalares cumplen las siguientes propiedades:</p>
 <ol class="arabic simple">
-<li><p>Conmutatividad: <span class="math notranslate nohighlight">\(\mathbf{u}+\mathbf{v}=\mathbf{v}+\mathbf{u}\)</span></p></li>
-<li><p>Asociatividad: <span class="math notranslate nohighlight">\((\mathbf{u}+\mathbf{v})+\mathbf{w}=\mathbf{u}+(\mathbf{v}+\mathbf{w})\)</span></p></li>
-<li><p>Neutro: <span class="math notranslate nohighlight">\(\mathbf{v}+\mathbf{0}=\mathbf{v}\)</span></p></li>
-<li><p>Inverso: <span class="math notranslate nohighlight">\(\mathbf{v}+(-\mathbf{v})=\mathbf{0}\)</span></p></li>
-<li><p>Distributividad: <span class="math notranslate nohighlight">\(\alpha(\mathbf{u}+\mathbf{v})=\alpha\mathbf{u}+\alpha\mathbf{v}\)</span></p></li>
-<li><p>Asociatividad escalar: <span class="math notranslate nohighlight">\(\alpha(\beta\mathbf{v})=(\alpha\beta)\mathbf{v}\)</span></p></li>
-<li><p>Identidad: <span class="math notranslate nohighlight">\(1\mathbf{v}=\mathbf{v}\)</span></p></li>
+<li><p><strong>Conmutatividad de la suma</strong><br />
+$<span class="math notranslate nohighlight">\(
+\mathbf{u}+\mathbf{v}=\mathbf{v}+\mathbf{u}.
+\)</span>$</p></li>
+<li><p><strong>Asociatividad de la suma</strong><br />
+$<span class="math notranslate nohighlight">\(
+(\mathbf{u}+\mathbf{v})+\mathbf{w}=\mathbf{u}+(\mathbf{v}+\mathbf{w}).
+\)</span>$</p></li>
+<li><p><strong>Elemento neutro</strong><br />
+$<span class="math notranslate nohighlight">\(
+\mathbf{v}+\mathbf{0}=\mathbf{v}, \quad \mathbf{0}=(0,0).
+\)</span>$</p></li>
+<li><p><strong>Inverso aditivo</strong><br />
+$<span class="math notranslate nohighlight">\(
+\mathbf{v}+(-\mathbf{v})=\mathbf{0}.
+\)</span>$</p></li>
+<li><p><strong>Distributividad</strong><br />
+$<span class="math notranslate nohighlight">\(
+\alpha(\mathbf{u}+\mathbf{v})=\alpha\mathbf{u}+\alpha\mathbf{v}.
+\)</span>$</p></li>
+<li><p><strong>Asociatividad de escalares</strong><br />
+$<span class="math notranslate nohighlight">\(
+\alpha(\beta\mathbf{v})=(\alpha\beta)\mathbf{v}.
+\)</span>$</p></li>
+<li><p><strong>Identidad multiplicativa</strong><br />
+$<span class="math notranslate nohighlight">\(
+1\mathbf{v}=\mathbf{v}.
+\)</span>$</p></li>
 </ol>
 </section>
+<hr class="docutils" />
 <section id="normas-de-un-vector">
 <h2>📏 Normas de un Vector<a class="headerlink" href="#normas-de-un-vector" title="Link to this heading">#</a></h2>
-<p>La norma mide la <strong>longitud</strong> de un vector.</p>
+<p>La <strong>norma</strong> mide la “longitud” o “magnitud” de un vector.</p>
 <section id="norma-euclidiana-l-2">
 <h3>Norma Euclidiana (<span class="math notranslate nohighlight">\(L_2\)</span>)<a class="headerlink" href="#norma-euclidiana-l-2" title="Link to this heading">#</a></h3>
-<div class="math notranslate nohighlight">
-\[
-\|\mathbf{v}\|_2 = \sqrt{v_1^2+v_2^2}.
-\]</div>
-<p>Ejemplo:<br />
-Si <span class="math notranslate nohighlight">\(\mathbf{v}=(3,4)\)</span> entonces <span class="math notranslate nohighlight">\(\|\mathbf{v}\|_2=5\)</span>.</p>
+<p>Para <span class="math notranslate nohighlight">\(\mathbf{v}=(v_1,v_2)\)</span>:
+$<span class="math notranslate nohighlight">\(
+\|\mathbf{v}\|_2=\sqrt{v_1^2+v_2^2}.
+\)</span>$</p>
+<ul class="simple">
+<li><p>Ejemplo:<br />
+Si <span class="math notranslate nohighlight">\(\mathbf{v}=(3,4)\)</span>,
+$<span class="math notranslate nohighlight">\(
+\|\mathbf{v}\|_2=\sqrt{3^2+4^2}=\sqrt{9+16}=\sqrt{25}=5.
+\)</span>$</p></li>
+</ul>
 </section>
 <section id="otras-normas">
 <h3>Otras Normas<a class="headerlink" href="#otras-normas" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(L_1\)</span>: <span class="math notranslate nohighlight">\(\|\mathbf{v}\|_1=|v_1|+|v_2|\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(L_\infty\)</span>: <span class="math notranslate nohighlight">\(\|\mathbf{v}\|_\infty=\max(|v_1|,|v_2|)\)</span></p></li>
+<li><p><strong>Norma 1 (<span class="math notranslate nohighlight">\(L_1\)</span>)</strong>:<br />
+$<span class="math notranslate nohighlight">\(
+\|\mathbf{v}\|_1=|v_1|+|v_2|.
+\)</span>$</p></li>
+<li><p><strong>Norma infinito (<span class="math notranslate nohighlight">\(L_\infty\)</span>)</strong>:<br />
+$<span class="math notranslate nohighlight">\(
+\|\mathbf{v}\|_\infty=\max(|v_1|,|v_2|).
+\)</span>$</p></li>
 </ul>
-<div class="cell docutils container">
+<p>📌 La norma euclidiana (<span class="math notranslate nohighlight">\(L_2\)</span>) es la más usada en geometría y análisis vectorial, pero las otras normas son útiles en optimización y ciencias de datos.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
@@ -501,6 +552,7 @@ Si <span class="math notranslate nohighlight">\(\mathbf{v}=(3,4)\)</span> entonc
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="../_images/9e93b6de885283629197dbb7268541fea8383025c605198b56dbcc905bc1d139.png" src="../_images/9e93b6de885283629197dbb7268541fea8383025c605198b56dbcc905bc1d139.png" />
 </div>
@@ -510,36 +562,231 @@ Si <span class="math notranslate nohighlight">\(\mathbf{v}=(3,4)\)</span> entonc
 <section id="ejercicio">
 <h2>Ejercicio<a class="headerlink" href="#ejercicio" title="Link to this heading">#</a></h2>
 <p>¿Cómo sería la circunferencia en la norma infinito?</p>
+<section id="propiedades-de-la-norma">
+<h3>Propiedades de la Norma<a class="headerlink" href="#propiedades-de-la-norma" title="Link to this heading">#</a></h3>
+<p>La norma euclidiana en <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span> cumple con las siguientes propiedades:</p>
+<ol class="arabic simple">
+<li><p><strong>Positividad</strong>:
+$<span class="math notranslate nohighlight">\(
+\|\mathbf{v}\|_2\geq 0,\quad\text{y}\quad\|\mathbf{v}\|_2=0\text{ si y solo si }\mathbf{v}=\mathbf{0}.
+\)</span>$</p></li>
+<li><p><strong>Homogeneidad</strong>:
+$<span class="math notranslate nohighlight">\(
+ \|\alpha\mathbf{v}\|_2=|\alpha|\|\mathbf{v}\|_2.
+ \)</span>$</p></li>
+<li><p><strong>Desigualdad Triangular</strong>:
+$<span class="math notranslate nohighlight">\(
+ \|\mathbf{u}+\mathbf{v}\|_2\leq\|\mathbf{u}\|_2+\|\mathbf{v}\|_2.
+ \)</span>$</p></li>
+</ol>
 </section>
-<section id="proyeccion-de-un-vector">
-<h2>🎯 Proyección de un Vector<a class="headerlink" href="#proyeccion-de-un-vector" title="Link to this heading">#</a></h2>
-<section id="id5">
-<h3>Definición<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
-<div class="math notranslate nohighlight">
-\[
-\text{proj}_{\mathbf{v}}(\mathbf{u})=\frac{\mathbf{u}\cdot\mathbf{v}}{\mathbf{v}\cdot\mathbf{v}}\mathbf{v}.
-\]</div>
 </section>
+<section id="proyeccion-de-un-vector-en-mathbb-r-2">
+<h2>Proyección de un Vector en <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span><a class="headerlink" href="#proyeccion-de-un-vector-en-mathbb-r-2" title="Link to this heading">#</a></h2>
+<p>La <strong>proyección</strong> de un vector <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> sobre otro vector <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> (asumiendo <span class="math notranslate nohighlight">\(\mathbf{v}\neq\mathbf{0}\)</span>) es el vector en la dirección de <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> que representa la parte de <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> en esa dirección.</p>
 <section id="id6">
-<h3>Ejemplo<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
-<p>Sea $\mathbf{u}=(2,1)$ y $\mathbf{v}=(3,0)$:</p>
-<div class="math notranslate nohighlight">
-\[
-\text{proj}_{\mathbf{v}}(\mathbf{u})=(2,0).
-\]</div>
+<h3>5.1 Definición<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>La proyección de <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> sobre <span class="math notranslate nohighlight">\(\mathbf{v}\)</span>, denotada como <span class="math notranslate nohighlight">\(\text{proj}_{\mathbf{v}}(\mathbf{u})\)</span>, se define como:
+$<span class="math notranslate nohighlight">\(
+\text{proj}_{\mathbf{v}}(\mathbf{u})=\left(\frac{\mathbf{u}\cdot\mathbf{v}}{\mathbf{v}\cdot\mathbf{v}}\right)\mathbf{v}.
+\)</span>$</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mathbf{u}\cdot\mathbf{v}\)</span> es el <strong>producto punto</strong>:
+$<span class="math notranslate nohighlight">\(
+\mathbf{u}\cdot\mathbf{v}=u_1v_1+u_2v_2.
+\)</span>$</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{v}\cdot\mathbf{v}=\|\mathbf{v}\|_2^2=v_1^2+v_2^2\)</span>.</p></li>
+</ul>
+</section>
+<section id="id7">
+<h3>5.2 Ejemplo<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<p>Sean:
+$<span class="math notranslate nohighlight">\(
+\mathbf{u}=(2,1),\mathbf{v}=(3,0).
+\)</span>$</p>
+<ol class="arabic simple">
+<li><p>Calcular el producto punto <span class="math notranslate nohighlight">\(\mathbf{u}\cdot\mathbf{v}\)</span>:
+$<span class="math notranslate nohighlight">\(
+\mathbf{u}\cdot\mathbf{v}=(2)(3)+(1)(0)=6.
+\)</span>$</p></li>
+<li><p>Calcular <span class="math notranslate nohighlight">\(\mathbf{v}\cdot\mathbf{v}\)</span>:
+$<span class="math notranslate nohighlight">\(
+\mathbf{v}\cdot\mathbf{v}=(3)(3)+(0)(0)=9.
+\)</span>$</p></li>
+<li><p>Hallar la proyección:
+$<span class="math notranslate nohighlight">\(
+\text{proj}_{\mathbf{v}}(\mathbf{u})=\left(\frac{6}{9}\right)(3,0)=\left(\frac{2}{3}\right)(3,0)=(2,0).
+\)</span>$</p></li>
+</ol>
+<p>Geométricamente, <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> se proyecta sobre <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> y el vector resultante es <strong>paralelo</strong> a <span class="math notranslate nohighlight">\(\mathbf{v}\)</span>.</p>
 </section>
 </section>
 <hr class="docutils" />
 <section id="resumen">
-<h2>📌 Resumen<a class="headerlink" href="#resumen" title="Link to this heading">#</a></h2>
+<h2>6. Resumen<a class="headerlink" href="#resumen" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
-<li><p>Vectores en $\mathbb{R}^2$: pares ordenados.</p></li>
-<li><p>Suma: componente a componente.</p></li>
-<li><p>Multiplicación por escalar: escala magnitud y puede invertir dirección.</p></li>
-<li><p>Norma: longitud del vector.</p></li>
-<li><p>Proyección: parte de un vector en la dirección de otro.</p></li>
+<li><p><strong>Vectores en <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>:</strong> Se representan como pares ordenados <span class="math notranslate nohighlight">\((v_1,v_2)\)</span>.</p></li>
+<li><p><strong>Suma de Vectores:</strong> Suma componente a componente.</p></li>
+<li><p><strong>Multiplicación por Escalar:</strong> Escala la magnitud del vector y puede invertir su dirección (si el escalar es negativo).</p></li>
+<li><p><strong>Normas:</strong> Principalmente la norma euclidiana <span class="math notranslate nohighlight">\(\sqrt{v_1^2+v_2^2}\)</span> para medir la “longitud” del vector.</p></li>
+<li><p><strong>Proyección:</strong> <span class="math notranslate nohighlight">\(\text{proj}_{\mathbf{v}}(\mathbf{u})\)</span> calcula la componente de <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> en la dirección de <span class="math notranslate nohighlight">\(\mathbf{v}\)</span>.</p></li>
 </ol>
-<div class="cell docutils container">
+<p>Con estos conceptos, ya tienes las bases para entender y trabajar con operaciones vectoriales fundamentales en <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>. ¡Sigue practicando con ejemplos para reforzar tu comprensión!</p>
+<div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Definimos las funciones</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">vector_addition</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Suma de dos vectores en R2&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">scalar_multiplication</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Multiplicación de un vector por un escalar&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">alpha</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">vector_norm</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calcula la norma euclidiana de un vector&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">vector_projection</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Proyección del vector u sobre v&quot;&quot;&quot;</span>
+    <span class="n">v_norm_squared</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">scalar_projection</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="o">/</span> <span class="n">v_norm_squared</span>
+    <span class="k">return</span> <span class="n">scalar_projection</span> <span class="o">*</span> <span class="n">v</span>
+
+<span class="c1"># Visualización gráfica de la suma de vectores</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_vector_addition</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Representa gráficamente la suma de vectores usando el método cabeza-cola&quot;&quot;&quot;</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">vector_addition</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+    <span class="c1"># Dibujar los vectores</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">angles</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale_units</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;u&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">angles</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale_units</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;v&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">result</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">angles</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale_units</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;u+v&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Configurar límites y etiquetas</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Suma de vectores (Método cabeza-cola)&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Visualización gráfica de la multiplicación por escalar</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_scalar_multiplication</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Representa gráficamente la multiplicación por escalar&quot;&quot;&quot;</span>
+    <span class="n">scaled_v</span> <span class="o">=</span> <span class="n">scalar_multiplication</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+    <span class="c1"># Dibujar el vector original y el escalado</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">angles</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale_units</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;v&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">scaled_v</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">scaled_v</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">angles</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale_units</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">alpha</span><span class="si">}</span><span class="s1">v&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Configurar límites y etiquetas</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Multiplicación por escalar&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Visualización gráfica de la proyección</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_vector_projection</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Representa gráficamente la proyección de un vector sobre otro&quot;&quot;&quot;</span>
+    <span class="n">proj</span> <span class="o">=</span> <span class="n">vector_projection</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+    <span class="c1"># Dibujar los vectores</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">angles</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale_units</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;u&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">angles</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale_units</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;v&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">proj</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">proj</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">angles</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale_units</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Proyección de u sobre v&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Configurar límites y etiquetas</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Proyección de un vector sobre otro&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Ejemplo de uso</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="c1"># Definir vectores</span>
+    <span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Vector u:&quot;</span><span class="p">,</span> <span class="n">u</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Vector v:&quot;</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+
+    <span class="c1"># Suma de vectores</span>
+    <span class="n">u_plus_v</span> <span class="o">=</span> <span class="n">vector_addition</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Suma de vectores u + v:&quot;</span><span class="p">,</span> <span class="n">u_plus_v</span><span class="p">)</span>
+
+    <span class="c1"># Multiplicación por escalar</span>
+    <span class="n">alpha</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">scaled_u</span> <span class="o">=</span> <span class="n">scalar_multiplication</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">u</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Vector u multiplicado por </span><span class="si">{</span><span class="n">alpha</span><span class="si">}</span><span class="s2">:&quot;</span><span class="p">,</span> <span class="n">scaled_u</span><span class="p">)</span>
+
+    <span class="c1"># Norma de un vector</span>
+    <span class="n">norm_u</span> <span class="o">=</span> <span class="n">vector_norm</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Norma del vector u:&quot;</span><span class="p">,</span> <span class="n">norm_u</span><span class="p">)</span>
+
+    <span class="c1"># Proyección de u sobre v</span>
+    <span class="n">proj_u_on_v</span> <span class="o">=</span> <span class="n">vector_projection</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Proyección de u sobre v:&quot;</span><span class="p">,</span> <span class="n">proj_u_on_v</span><span class="p">)</span>
+
+    <span class="c1"># Visualización gráfica</span>
+    <span class="n">plot_vector_addition</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+    <span class="n">plot_scalar_multiplication</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">u</span><span class="p">)</span>
+    <span class="n">plot_vector_projection</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vector u: [3 2]
+Vector v: [1 4]
+Suma de vectores u + v: [4 6]
+Vector u multiplicado por 2: [6 4]
+Norma del vector u: 3.605551275463989
+Proyección de u sobre v: [0.64705882 2.58823529]
+</pre></div>
+</div>
+<img alt="../_images/1789d2a07b25140db77124684a5fd3182cdba6cf66b0a01281a40938fa9d5030.png" src="../_images/1789d2a07b25140db77124684a5fd3182cdba6cf66b0a01281a40938fa9d5030.png" />
+<img alt="../_images/6a5927ce5892a41ec11155b4750eb8a62c9690e7dbe52ad63a81c6a63e6604a5.png" src="../_images/6a5927ce5892a41ec11155b4750eb8a62c9690e7dbe52ad63a81c6a63e6604a5.png" />
+<img alt="../_images/4af8ed2f49adfc3b32dd027e343f58c00587c3a8f89744d2d5f0a6fa11a2cd66.png" src="../_images/4af8ed2f49adfc3b32dd027e343f58c00587c3a8f89744d2d5f0a6fa11a2cd66.png" />
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">6</span><span class="p">])</span>
@@ -553,6 +800,7 @@ Si <span class="math notranslate nohighlight">\(\mathbf{v}=(3,4)\)</span> entonc
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>u = [ 3 -6]
 v = [-1  4]
@@ -633,25 +881,28 @@ Proyección de u sobre v = [ 1.58823529 -6.35294118]
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo">Ejemplo</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplicacion-por-escalar">✖️ Multiplicación por Escalar</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplicacion-por-un-escalar">✖️ Multiplicación por un Escalar</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Definición</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion">Interpretación</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Ejemplo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Interpretación Geométrica</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Ejemplo</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#propiedades">⚖️ Propiedades</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#propiedades-en-mathbb-r-2">⚖️ Propiedades en <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normas-de-un-vector">📏 Normas de un Vector</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#norma-euclidiana-l-2">Norma Euclidiana (<span class="math notranslate nohighlight">\(L_2\)</span>)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#otras-normas">Otras Normas</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio">Ejercicio</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proyeccion-de-un-vector">🎯 Proyección de un Vector</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Definición</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Ejemplo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio">Ejercicio</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#propiedades-de-la-norma">Propiedades de la Norma</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resumen">📌 Resumen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proyeccion-de-un-vector-en-mathbb-r-2">Proyección de un Vector en <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">5.1 Definición</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">5.2 Ejemplo</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resumen">6. Resumen</a></li>
 </ul>
   </nav></div>
 
