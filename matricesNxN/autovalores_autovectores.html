@@ -1,0 +1,859 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Autovalores y autovectores &#8212; Gebrathon</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'matricesNxN/autovalores_autovectores';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Determinantes" href="determinantes.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo_gebrathon.png" class="logo__image only-light" alt=""/>
+    <script>document.write(`<img src="../_static/logo_gebrathon.png" class="logo__image only-dark" alt=""/>`);</script>
+  
+  
+    <p class="title logo__title">Gebrathon</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cronogramas/index.html">📅 Cronogramas de la Asignatura</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cronogramas/2025-2.html">Cronograma 2025-2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../plano/index.html">📐 Plano en <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../plano/operaciones_r2.html">📘 Operaciones en <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plano/rectas_r2.html">Rectas en <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plano/independencia-lineal.html">Subespacio de <span class="math notranslate nohighlight">\(\mathbb{R}²\)</span></a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../matrices2x2/index.html">🟦 Matrices <span class="math notranslate nohighlight">\(2 \times 2\)</span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../matrices2x2/operaciones_matrices.html">Operaciones con matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../matrices2x2/sistemas_de_ecuaciones.html">Sistemas de Ecuaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../matrices2x2/taller_computacional_matrices.html">Taller Computacional Matrices</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../matrices2x2/autovalores_autovectores.html">Autovalores y Autovectores</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Autovalores y autovectores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="determinantes.html">Determinantes</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/matricesNxN/autovalores_autovectores.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Autovalores y autovectores</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplicacion-por-escalar">Multiplicación por escalar</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplicacion-de-una-matriz-por-un-vector">Multiplicación de una matriz por un vector</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplicacion-de-matrices">Multiplicación de matrices</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz-identidad">Matriz identidad</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz-inversa">Matriz inversa</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculo-de-la-matriz-inversa">Calculo de la matriz inversa</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo">Ejemplo</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio">Ejercicio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz-escalonada-por-filas">Matriz escalonada por filas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Ejemplo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Ejercicio</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices-con-python">Matrices con python</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solcuiones-de-sistemas-de-ecuaciones-lineales-con-python">Solcuiones de sistemas de ecuaciones lineales con python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Ejercicio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#encontrar-la-matriz-inversa-con-python">Encontrar la matriz inversa con python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Ejercicio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz-escalonada-con-python">Matriz escalonada con python</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="autovalores-y-autovectores">
+<h1>Autovalores y autovectores<a class="headerlink" href="#autovalores-y-autovectores" title="Link to this heading">#</a></h1>
+<p>Operaciones con matrices <span class="math notranslate nohighlight">\(n \times n\)</span></p>
+<p>Dadas dos matrices <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(B\)</span> de tamaño <span class="math notranslate nohighlight">\(n \times n\)</span>, la suma de matrices se define como</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+A + B = \begin{bmatrix}
+a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \\
+a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+a_{n1} &amp; a_{n2} &amp; \cdots &amp; a_{nn}
+\end{bmatrix}
++
+\begin{bmatrix}
+b_{11} &amp; b_{12} &amp; \cdots &amp; b_{1n} \\
+b_{21} &amp; b_{22} &amp; \cdots &amp; b_{2n} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+b_{n1} &amp; b_{n2} &amp; \cdots &amp; b_{nn}
+\end{bmatrix}
+=
+\begin{bmatrix}
+a_{11} + b_{11} &amp; a_{12} + b_{12} &amp; \cdots &amp; a_{1n} + b_{1n} \\
+a_{21} + b_{21} &amp; a_{22} + b_{22} &amp; \cdots &amp; a_{2n} + b_{2n} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+a_{n1} + b_{n1} &amp; a_{n2} + b_{n2} &amp; \cdots &amp; a_{nn} + b_{nn}
+\end{bmatrix}
+\end{split}\]</div>
+<section id="multiplicacion-por-escalar">
+<h2>Multiplicación por escalar<a class="headerlink" href="#multiplicacion-por-escalar" title="Link to this heading">#</a></h2>
+<p>Dada una matriz <span class="math notranslate nohighlight">\(A\)</span> de tamaño <span class="math notranslate nohighlight">\(n \times n\)</span> y un escalar <span class="math notranslate nohighlight">\(c\)</span>, el producto de la matriz por el escalar se define como</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+cA = c \begin{bmatrix}
+a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \\
+a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+a_{n1} &amp; a_{n2} &amp; \cdots &amp; a_{nn}
+\end{bmatrix}
+=
+\begin{bmatrix}
+ca_{11} &amp; ca_{12} &amp; \cdots &amp; ca_{1n} \\
+ca_{21} &amp; ca_{22} &amp; \cdots &amp; ca_{2n} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+ca_{n1} &amp; ca_{n2} &amp; \cdots &amp; ca_{nn}
+\end{bmatrix}
+\end{split}\]</div>
+</section>
+<section id="multiplicacion-de-una-matriz-por-un-vector">
+<h2>Multiplicación de una matriz por un vector<a class="headerlink" href="#multiplicacion-de-una-matriz-por-un-vector" title="Link to this heading">#</a></h2>
+<p>Podemos multiplicar una matriz <span class="math notranslate nohighlight">\(A\)</span> de tamaño <span class="math notranslate nohighlight">\(m \times n\)</span> por un vector <span class="math notranslate nohighlight">\(v\)</span> de tamaño <span class="math notranslate nohighlight">\(n \times 1\)</span> para obtener un nuevo vector <span class="math notranslate nohighlight">\(w\)</span> de tamaño <span class="math notranslate nohighlight">\(m \times 1\)</span>. La multiplicación se define como</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+w = Av = \begin{bmatrix}
+a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \\
+a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+a_{m1} &amp; a_{m2} &amp; \cdots &amp; a_{mn}
+\end{bmatrix}
+\begin{bmatrix}
+v_1 \\
+v_2 \\      
+\vdots \\
+v_n
+\end{bmatrix}
+=
+\begin{bmatrix}
+a_{11}v_1 + a_{12}v_2 + \cdots + a_{1n}v_n \\
+a_{21}v_1 + a_{22}v_2 + \cdots + a_{2n}v_n \\
+\vdots \\
+a_{m1}v_1 + a_{m2}v_2 + \cdots + a_{mn}v_n
+\end{bmatrix}
+\end{split}\]</div>
+</section>
+<section id="multiplicacion-de-matrices">
+<h2>Multiplicación de matrices<a class="headerlink" href="#multiplicacion-de-matrices" title="Link to this heading">#</a></h2>
+<p>Para multiplicar dos matrices <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(B\)</span>  debe coincidir el tamaño de las columnas de la primera matriz con el tamaño de las filas de la segunda matriz. Si <span class="math notranslate nohighlight">\(A\)</span> es de tamaño <span class="math notranslate nohighlight">\(m \times n\)</span> y <span class="math notranslate nohighlight">\(B\)</span> es de tamaño <span class="math notranslate nohighlight">\(n \times p\)</span>, entonces el producto de las matrices <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(B\)</span> es una matriz <span class="math notranslate nohighlight">\(C\)</span> de tamaño <span class="math notranslate nohighlight">\(m \times p\)</span>, para realizar este producto podemos escribir la segunda matriz como columnas y multiplicar cada columna por la matriz <span class="math notranslate nohighlight">\(A\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[
+C = AB = A [B_1, B_2, \ldots, B_p] = [AB_1, AB_2, \ldots, AB_p]
+\]</div>
+<p>donde <span class="math notranslate nohighlight">\(B_1, B_2, \ldots, B_p\)</span> son las columnas de la matriz <span class="math notranslate nohighlight">\(B\)</span>.</p>
+</section>
+<section id="matriz-identidad">
+<h2>Matriz identidad<a class="headerlink" href="#matriz-identidad" title="Link to this heading">#</a></h2>
+<p>La matriz identidad <span class="math notranslate nohighlight">\(I\)</span> es una matriz cuadrada de tamaño <span class="math notranslate nohighlight">\(n \times n\)</span> con unos en la diagonal principal y ceros en las demás entradas. La matriz identidad cumple la propiedad de que al multiplicar cualquier matriz <span class="math notranslate nohighlight">\(A\)</span> de tamaño <span class="math notranslate nohighlight">\(n \times n\)</span> por la matriz identidad se obtiene la misma matriz <span class="math notranslate nohighlight">\(A\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[
+AI = IA = A
+\]</div>
+</section>
+<section id="matriz-inversa">
+<h2>Matriz inversa<a class="headerlink" href="#matriz-inversa" title="Link to this heading">#</a></h2>
+<p>Dada una matriz cuadrada <span class="math notranslate nohighlight">\(A\)</span> de tamaño <span class="math notranslate nohighlight">\(n \times n\)</span>, la matriz inversa <span class="math notranslate nohighlight">\(A^{-1}\)</span> es aquella que cumple la propiedad de que al multiplicarla por la matriz original se obtiene la matriz identidad.</p>
+<div class="math notranslate nohighlight">
+\[
+AA^{-1} = A^{-1}A = I
+\]</div>
+</section>
+<section id="calculo-de-la-matriz-inversa">
+<h2>Calculo de la matriz inversa<a class="headerlink" href="#calculo-de-la-matriz-inversa" title="Link to this heading">#</a></h2>
+<p>Dada una matriz cuadrada <span class="math notranslate nohighlight">\(A\)</span> de tamaño <span class="math notranslate nohighlight">\(n \times n\)</span>, encontrar la matriz inversa de <span class="math notranslate nohighlight">\(A\)</span> es equivalente a resolver <span class="math notranslate nohighlight">\(n\)</span> sistemas de ecuaciones lineales. Asi, para calcular la matriz inversas se puede encontrar con el siguiente algoritmo:</p>
+<p>Para esta deducción podemos considerar que <span class="math notranslate nohighlight">\(A^{-1}=[x_1|x_2|\ldots|x_n]\)</span> y que <span class="math notranslate nohighlight">\(e_1,e_2,\ldots,e_n\)</span> son las columnas de la matriz identidad de tamaño <span class="math notranslate nohighlight">\(n \times n\)</span>. Entonces, la matriz inversa se puede encontrar a partir</p>
+<div class="math notranslate nohighlight">
+\[
+AA^{-1} = A[x_1|x_2|\ldots|x_n] = [Ax_1|Ax_2|\ldots|Ax_n] = [e_1|e_2|\ldots|e_n] = I
+\]</div>
+<p>Así el cálculo de la matriz inversa se puede realizar a partir de la resolución de <span class="math notranslate nohighlight">\(n\)</span> sistemas de ecuaciones lineales de la forma
+$<span class="math notranslate nohighlight">\(Ax_1=e_1\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(Ax_2=e_2\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(Ax_3=e_3\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(\vdots\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(Ax_n=e_n\)</span>$</p>
+<p>Aunque este procedimiento es dispendioso, podemos utilizar la eliminación gaussiana para encontrar la matriz inversa de una matriz cuadrada. El algoritmo para encontrar la matriz inversa de una matriz cuadrada <span class="math notranslate nohighlight">\(A\)</span> de tamaño <span class="math notranslate nohighlight">\(n \times n\)</span> es el siguiente:</p>
+<ol class="arabic simple">
+<li><p>Se construye la matriz <span class="math notranslate nohighlight">\([A|I]\)</span> donde <span class="math notranslate nohighlight">\(I\)</span> es la matriz identidad de tamaño <span class="math notranslate nohighlight">\(n \times n\)</span>.</p></li>
+<li><p>Se aplica eliminación gaussiana para obtener la matriz <span class="math notranslate nohighlight">\([I|A^{-1}]\)</span>.</p></li>
+<li><p>La matriz <span class="math notranslate nohighlight">\(A^{-1}\)</span> es la matriz que se encuentra a la derecha de la barra vertical.</p></li>
+</ol>
+<p>Note que esto es equivalente a resolver un <span class="math notranslate nohighlight">\(n\)</span> sistemas de ecuaciones lineales de la forma <span class="math notranslate nohighlight">\(Ax = b\)</span> donde <span class="math notranslate nohighlight">\(b\)</span> es una columna de la matriz identidad.</p>
+<section id="ejemplo">
+<h3>Ejemplo<a class="headerlink" href="#ejemplo" title="Link to this heading">#</a></h3>
+<p>Dada la matriz <span class="math notranslate nohighlight">\(A = \begin{bmatrix} 1 &amp; 2 &amp;1 \\0&amp; 1 &amp; 4\\ 1&amp;0&amp;0 \end{bmatrix}\)</span>, encuentre la matriz inversa de <span class="math notranslate nohighlight">\(A\)</span>.</p>
+<p>Para encontrar la matriz inversa de <span class="math notranslate nohighlight">\(A\)</span> se puede resolver el sistema de ecuaciones lineales</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+1  &amp; 2 &amp;1 &amp;|&amp; 1 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 4 &amp;|&amp; 0 &amp; 1 &amp; 0 \\
+1 &amp; 0 &amp; 0 &amp;|&amp; 0 &amp; 0 &amp; 1
+\end{bmatrix}
+\end{split}\]</div>
+<p>Luego mediante operaciones elementales se puede encontrar la matriz inversa de <span class="math notranslate nohighlight">\(A\)</span>,
+por ejemplo, si hacemos <span class="math notranslate nohighlight">\(F_3=F_3 - F_1\)</span> obtenemos</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+1 &amp; 2  &amp;  1 &amp;|&amp; 1 &amp; 0 &amp; 0 \\
+0 &amp; 1  &amp;  4 &amp;|&amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; -2 &amp; -1 &amp;|&amp; -1 &amp; 0 &amp; 1  
+\end{bmatrix}
+\end{split}\]</div>
+<p>Ahora, si hacemos <span class="math notranslate nohighlight">\(F_1=F_1-2F_2\)</span> y <span class="math notranslate nohighlight">\(F_3=F_3+2F_2\)</span> obtenemos</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+1 &amp; 0 &amp; -7 &amp;|&amp; 1 &amp; -2 &amp; 0 \\
+0 &amp; 1 &amp; 4 &amp;|&amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 7 &amp;|&amp; -1 &amp; 2 &amp; 1
+\end{bmatrix}
+\end{split}\]</div>
+<p>Por ultimo si hacemos <span class="math notranslate nohighlight">\(F_2=F_2-4F_3/7\)</span>, <span class="math notranslate nohighlight">\(F_1=F_1+F_3\)</span> y <span class="math notranslate nohighlight">\(F_3=F_3/7\)</span> obtenemos</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+1 &amp; 0 &amp; 0 &amp;|&amp; 0 &amp; 0 &amp; 1 \\
+0 &amp; 1 &amp; 0 &amp;|&amp; 0 &amp; 1 &amp; -4/7 \\
+0 &amp; 0 &amp; 1 &amp;|&amp; -1/7 &amp; 2/7 &amp; 1/7
+\end{bmatrix}
+\end{split}\]</div>
+<p>Por lo tanto, la matriz inversa de <span class="math notranslate nohighlight">\(A\)</span> es <span class="math notranslate nohighlight">\(A^{-1} = \begin{bmatrix} 0 &amp; 0 &amp; 1 \\ 0 &amp; 1 &amp; -4/7 \\ -1/7 &amp; 2/7 &amp; 1/7 \end{bmatrix}\)</span>.</p>
+<p>Note que <span class="math notranslate nohighlight">\(A^{-1}A = I\)</span> y <span class="math notranslate nohighlight">\(AA^{-1}=I\)</span></p>
+</section>
+</section>
+<section id="ejercicio">
+<h2>Ejercicio<a class="headerlink" href="#ejercicio" title="Link to this heading">#</a></h2>
+<p>Dada la matriz <span class="math notranslate nohighlight">\(A = \begin{bmatrix} 1 &amp; 2 &amp; 3 \\ 0 &amp; 1 &amp; 4 \\ 5 &amp; 6 &amp; 0 \end{bmatrix}\)</span>, encuentre la matriz inversa de <span class="math notranslate nohighlight">\(A\)</span>.</p>
+<p><strong>De esta forma nos podemos preguntar</strong> ¿Cuando una matriz cuadrada <span class="math notranslate nohighlight">\(A\)</span> tiene inversa?</p>
+</section>
+<section id="matriz-escalonada-por-filas">
+<h2>Matriz escalonada por filas<a class="headerlink" href="#matriz-escalonada-por-filas" title="Link to this heading">#</a></h2>
+<p>Definimos una matriz escalonada como una matriz cuadrada <span class="math notranslate nohighlight">\(A\)</span> de tamaño <span class="math notranslate nohighlight">\(m \times n\)</span> que cumple las siguientes propiedades:</p>
+<ol class="arabic simple">
+<li><p>Todos los renglones cero están en la parte inferior de la matriz.</p></li>
+<li><p>El elemento delantero de cada renglón diferente de cero está a la derecha del elemento delantero diferente de cero del renglón anterior.</p></li>
+<li><p>El primer elemento diferente de 0 y 1 de cada fila está a la derecha del primer elemento diferente de 0.</p></li>
+</ol>
+<section id="id1">
+<h3>Ejemplo<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>Matriz escalonada</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+1 &amp; 2 &amp; 3 &amp; 4 \\
+0 &amp; 1 &amp; 2 &amp; 3 \\
+0 &amp; 0 &amp; 1 &amp; 2 \\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{bmatrix}
+\end{split}\]</div>
+<p>Matriz escalonada reducida</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+1 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{bmatrix}
+\end{split}\]</div>
+<p>Matriz no escalonada</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+1 &amp; 2 &amp; 3 &amp; 4 \\
+0 &amp; 1 &amp; 2 &amp; 3 \\
+0 &amp; 0 &amp; 1 &amp; 2 \\
+1 &amp; 0 &amp; 0 &amp; 1
+\end{bmatrix}
+\end{split}\]</div>
+</section>
+<section id="id2">
+<h3>Ejercicio<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>Dada la matriz <span class="math notranslate nohighlight">\(C = \begin{bmatrix} 1 &amp; 2 &amp; 3 \\ 0 &amp; 1 &amp; 4 \\ 5 &amp; 6 &amp; 0 \end{bmatrix}\)</span>, determine si la matriz <span class="math notranslate nohighlight">\(C\)</span> es una matriz escalonada o una matriz escalonada reducida.</p>
+<p><strong>Note que si una matriz cuadrada <span class="math notranslate nohighlight">\(A\)</span> y se puede escribir como una matriz escalonada con todos los elementos de la diagonal principal diferentes de cero,    entonces la matriz <span class="math notranslate nohighlight">\(A\)</span> tiene inversa.</strong> ¿Por qué esta afirmación es cierta?</p>
+</section>
+<section id="matrices-con-python">
+<h3>Matrices con python<a class="headerlink" href="#matrices-con-python" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># Supongamos que bw es tu matriz binaria (NumPy array o matrix)</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
+<span class="c1"># 1️⃣ Dimensiones (filas, columnas)</span>
+<span class="n">filas</span><span class="p">,</span> <span class="n">columnas</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dimensiones: </span><span class="si">{</span><span class="n">filas</span><span class="si">}</span><span class="s2"> filas × </span><span class="si">{</span><span class="n">columnas</span><span class="si">}</span><span class="s2"> columnas&quot;</span><span class="p">)</span>
+
+<span class="c1"># 2️⃣ Total de elementos (filas×columnas)</span>
+<span class="n">total</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">size</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total de elementos: </span><span class="si">{</span><span class="n">total</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># 3️⃣ Elementos de la diagonal principal</span>
+<span class="n">diagonal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Elementos de la diagonal principal: </span><span class="si">{</span><span class="n">diagonal</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># 4️⃣ ver un elemento de la matriz</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Elemento en la fila 1 y columna 1: </span><span class="si">{</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Elemento en la fila 2 y columna 3: </span><span class="si">{</span><span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dimensiones: 3 filas × 3 columnas
+Total de elementos: 9
+Elementos de la diagonal principal: [3 3 4]
+Elemento en la fila 1 y columna 1: 3
+Elemento en la fila 2 y columna 3: 3
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="solcuiones-de-sistemas-de-ecuaciones-lineales-con-python">
+<h2>Solcuiones de sistemas de ecuaciones lineales con python<a class="headerlink" href="#solcuiones-de-sistemas-de-ecuaciones-lineales-con-python" title="Link to this heading">#</a></h2>
+<p>Quereos resolver el siguiente sistema de ecuaciones lineales</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+3x + 2y +3z &amp;= 1 \\
+2x + 3y + 3z &amp;= 2 \\
+3x + 3y + 4z &amp;= 3
+\end{align*}
+\end{split}\]</div>
+<p>import numpy as np</p>
+<p>A = np.array([[3, 2, 3], [2, 3, 3], [3, 3, 4]])
+b = np.array([1, 2, 3])</p>
+<p>x = np.linalg.solve(A, b)
+print(x)</p>
+</section>
+<section id="id3">
+<h2>Ejercicio<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<p>Resuelva el siguiente sistema de ecuaciones lineales</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+2x + 3y + 4z &amp;= 1 \\
+3x + 4y + 5z &amp;= 2 \\
+4x + 5y + 6z &amp;= 3
+\end{align*}
+\end{split}\]</div>
+</section>
+<section id="encontrar-la-matriz-inversa-con-python">
+<h2>Encontrar la matriz inversa con python<a class="headerlink" href="#encontrar-la-matriz-inversa-con-python" title="Link to this heading">#</a></h2>
+<p>Queremos encontrar la matriz inversa de la matriz <span class="math notranslate nohighlight">\(A = \begin{bmatrix} 1 &amp; 2 &amp; 3 \\ 0 &amp; 1 &amp; 4 \\ 5 &amp; 6 &amp; 0 \end{bmatrix}\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<span class="n">A_inv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A_inv</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-24.  18.   5.]
+ [ 20. -15.  -4.]
+ [ -5.   4.   1.]]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id4">
+<h2>Ejercicio<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<p>Encuentre la matriz inversa de la matriz <span class="math notranslate nohighlight">\(B = \begin{bmatrix} 1 &amp; 2 &amp; 3 \\ 0 &amp; 1 &amp; 4 \\ 5 &amp; 6 &amp; 0 \end{bmatrix}\)</span>.</p>
+</section>
+<section id="matriz-escalonada-con-python">
+<h2>Matriz escalonada con python<a class="headerlink" href="#matriz-escalonada-con-python" title="Link to this heading">#</a></h2>
+<p>Queremos determinar si la matriz <span class="math notranslate nohighlight">\(D = \begin{bmatrix} 1 &amp; 2 &amp; 3 \\ 0 &amp; 1 &amp; 4 \\ 5 &amp; 6 &amp; 0 \end{bmatrix}\)</span> es una matriz escalonada.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.linalg</span><span class="w"> </span><span class="kn">import</span> <span class="n">lu</span>
+
+<span class="n">A</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">]])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">spy</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Diagrama de la matriz&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Columnas&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Filas&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">U</span> <span class="o">=</span> <span class="n">lu</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">spy</span><span class="p">(</span><span class="n">U</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Diagrama de la matriz&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Columnas&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Filas&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/b6cd1802cac48c15c32d455a0ab7904dbf1c244a07d0c1663047ad176dd03a12.png" src="../_images/b6cd1802cac48c15c32d455a0ab7904dbf1c244a07d0c1663047ad176dd03a12.png" />
+<img alt="../_images/f480255577d00651f3ab6e500c623399ade3c938c4134781e37f387986e0c62c.png" src="../_images/f480255577d00651f3ab6e500c623399ade3c938c4134781e37f387986e0c62c.png" />
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./matricesNxN"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">&lt;no title&gt;</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="determinantes.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Determinantes</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplicacion-por-escalar">Multiplicación por escalar</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplicacion-de-una-matriz-por-un-vector">Multiplicación de una matriz por un vector</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplicacion-de-matrices">Multiplicación de matrices</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz-identidad">Matriz identidad</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz-inversa">Matriz inversa</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculo-de-la-matriz-inversa">Calculo de la matriz inversa</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo">Ejemplo</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio">Ejercicio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz-escalonada-por-filas">Matriz escalonada por filas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Ejemplo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Ejercicio</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices-con-python">Matrices con python</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solcuiones-de-sistemas-de-ecuaciones-lineales-con-python">Solcuiones de sistemas de ecuaciones lineales con python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Ejercicio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#encontrar-la-matriz-inversa-con-python">Encontrar la matriz inversa con python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Ejercicio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz-escalonada-con-python">Matriz escalonada con python</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Departamento de Ingenieria y Ciencias - Pontificia Universidad Javeriana Cali
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
