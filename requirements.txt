@@ -6,3 +6,7 @@ jupyterlab
 matplotlib
 numpy
 networkx
+ipywidgets
+scipy
+nltk
+pandas
