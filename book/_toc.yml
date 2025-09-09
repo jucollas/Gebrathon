@@ -1,9 +1,55 @@
 format: jb-article
 root: index
+
 sections:
 - file: cronogramas/index
   sections: 
   - file: cronogramas/2025-2
+
 - file: plano/index
   sections:
   - file: plano/operaciones_r2
+  - file: plano/rectas_r2
+  - file: plano/independencia-lineal
+
+- file: matrices2x2/index
+  sections:
+  - file: matrices2x2/operaciones_matrices
+  - file: matrices2x2/sistemas_de_ecuaciones
+  - file: matrices2x2/taller_computacional_matrices
+  - file: matrices2x2/autovalores_autovectores
+
+- file: matricesNxN/index
+  sections: 
+  - file: matricesNxN/operaciones_matrices
+  - file: matricesNxN/determinantes
+
+- file: transformaciones/index
+  sections:
+  - file: transformaciones/vectores_n2
+
+- file: talleres/index
+  sections:
+  - file: talleres/taller1(vectoresR2)
+  - file: talleres/taller2(planoR2)
+  - file: talleres/taller3(matrices2x2)
+  - file: talleres/taller4(autoMatrices2x2)
+  - file: talleres/taller5(codificacion_val_propios)
+  - file: talleres/taller6(val_propios_M2x2)
+  - file: talleres/taller7(opMatricesNxN)
+  - file: talleres/taller8(sisEcuaciones)
+  - file: talleres/taller9(espVectoriales)
+  - file: talleres/taller10(combLineales)
+  - file: talleres/taller11(vectoresRn)
+
+- file: IA/index
+  sections:
+  - file: IA/reconocimiento-de-imagenes
+  - file: IA/tu-dibujas-la-ia-adivida
+
+
+
+
+
+
+
