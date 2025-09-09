@@ -1,4 +1,9 @@
-jupyter-book
+# Necesario para notebooks en Binder
+notebook
+jupyterlab
+
+# Librerías que usas en tu repo
 matplotlib
 numpy
 networkx
+ipywidgets
